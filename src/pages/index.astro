@@ -1,16 +1,16 @@
 ---
-
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<BaseLayout title="Raman Kumar — Android, ML, Web Developer">
+  <Hero />
+
+  <!-- Featured Projects Section -->
+  <section class="max-w-6xl mx-auto px-4 py-12">
+    <h2 class="text-3xl font-bold mb-8 text-center">Featured Work</h2>
+    <p class="text-center text-slate-600 dark:text-slate-400 mb-12">
+      Coming soon: MovieFinder, NLP Projects, and more.
+    </p>
+  </section>
+</BaseLayout>
