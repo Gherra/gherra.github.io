@@ -1,0 +1,197 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Panorama FastR-Stitch — Raman Kumar" description="High-performance panorama stitching using MATLAB with custom FAST detection and RANSAC homography.">
+  <article class="max-w-4xl mx-auto px-4 py-12">
+    
+    <!-- Back Button -->
+    <a href="/" class="inline-flex items-center gap-2 text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 mb-8 transition-colors">
+      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/>
+      </svg>
+      Back to Home
+    </a>
+
+    <!-- Header -->
+    <header class="mb-12 -mx-4 px-4 py-8 bg-gradient-to-br from-purple-50 to-pink-50 dark:from-purple-950 dark:to-pink-950 rounded-2xl">
+      <div class="flex items-center gap-3 mb-4">
+        <span class="px-3 py-1 rounded-full text-sm font-medium bg-gradient-to-r from-purple-500 to-pink-600 text-white">
+          Computer Vision
+        </span>
+        <span class="text-slate-500 dark:text-slate-400">March 2024</span>
+      </div>
+      <h1 class="text-4xl md:text-5xl font-bold mb-4">Panorama FastR-Stitch</h1>
+      <p class="text-xl text-slate-600 dark:text-slate-400">
+        High-performance panorama stitching using MATLAB with custom FAST corner detection, SURF descriptors, and RANSAC homography estimation.
+      </p>
+      <div class="flex gap-3 mt-6">
+        <a href="https://github.com/Gherra/Panorama-FastR-Stitch" target="_blank" rel="noopener noreferrer" class="px-5 py-2 rounded-lg bg-gradient-to-r from-blue-600 to-violet-600 text-white font-medium hover:shadow-lg transition-all">
+          View Code
+        </a>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="prose prose-slate dark:prose-invert max-w-none">
+      
+      <h2>Project Overview</h2>
+      <p>
+        A complete panorama stitching pipeline that implements <strong>FAST corner detection from scratch</strong>, combines it with SURF descriptors for robust matching, and uses RANSAC to estimate homographies for accurate alignment. The result: seamless panoramas from 2-20 images.
+      </p>
+
+      <h2>Key Features</h2>
+      <ul>
+        <li><strong>Custom FAST detector:</strong> Implemented from scratch with optional Harris corner filtering (FASTR variant)</li>
+        <li><strong>SURF descriptors:</strong> Rotation-invariant 64-dimensional feature vectors for robust matching</li>
+        <li><strong>RANSAC homography:</strong> Estimates transformation with 99.9% confidence, filtering out noisy matches</li>
+        <li><strong>Linear feathering:</strong> Distance-weighted blending in overlap regions for seamless transitions</li>
+        <li><strong>Handles 2-20 images:</strong> Automatically chains transformations for multi-image panoramas</li>
+      </ul>
+
+      <h2>How It Works</h2>
+      
+      <h3>1. FAST Detection</h3>
+      <p>
+        FAST (Features from Accelerated Segment Test) examines a 16-pixel circle around each candidate point. A corner is detected if 12 or more contiguous pixels are all brighter or darker than the center by a threshold (15% intensity difference).
+      </p>
+      <p>
+        <strong>FASTR Enhancement:</strong> After FAST detection, run Harris corner response filtering to remove unstable edge features. This reduces false positives and improves matching quality.
+      </p>
+
+      <h3>2. SURF Matching</h3>
+      <p>
+        For each detected corner, compute a 64-dimensional SURF descriptor (rotation-invariant). Match descriptors between image pairs using nearest-neighbor search with <strong>Lowe's ratio test</strong> (threshold 0.75) to filter ambiguous matches.
+      </p>
+
+      <h3>3. RANSAC Homography</h3>
+      <p>
+        From the matched features, estimate a homography matrix using RANSAC:
+      </p>
+      <ul>
+        <li>Randomly sample 4 point correspondences</li>
+        <li>Compute homography from these 4 points</li>
+        <li>Count inliers (matches with reprojection error < 3 pixels)</li>
+        <li>Repeat 500 iterations, keep best model</li>
+        <li>Refit homography using all inliers for final transformation</li>
+      </ul>
+
+      <h3>4. Warping & Blending</h3>
+      <p>
+        Warp one image onto the other's coordinate frame using the homography. In overlap regions, use <strong>linear feathering</strong>: blend pixels based on distance from each image's edge. This creates smooth transitions without visible seams.
+      </p>
+
+      <h2>Performance Results</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Image Set</th>
+            <th>Images</th>
+            <th>Features/Image</th>
+            <th>Matches</th>
+            <th>Inliers</th>
+            <th>Time</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Set 1 (Library)</td>
+            <td>2</td>
+            <td>~500</td>
+            <td>67</td>
+            <td>50.7%</td>
+            <td>0.96s</td>
+          </tr>
+          <tr>
+            <td>Set 2 (Building)</td>
+            <td>4</td>
+            <td>~500</td>
+            <td>89</td>
+            <td>60.7%</td>
+            <td>1.84s</td>
+          </tr>
+          <tr>
+            <td>Set 3 (Pond)</td>
+            <td>4</td>
+            <td>~500</td>
+            <td>91</td>
+            <td>48.2%</td>
+            <td>1.96s</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p>
+        Test images captured around Simon Fraser University, Burnaby campus.
+      </p>
+
+      <h2>Technical Implementation</h2>
+      
+      <h3>FAST Parameters</h3>
+      <ul>
+        <li><strong>Intensity threshold:</strong> 0.15 (15% brightness difference)</li>
+        <li><strong>Contiguous pixels:</strong> N=12 (75% of the 16-pixel circle)</li>
+        <li><strong>Harris threshold:</strong> 0.005 for filtering weak corners</li>
+      </ul>
+
+      <h3>RANSAC Configuration</h3>
+      <ul>
+        <li><strong>Max trials:</strong> 500 iterations</li>
+        <li><strong>Confidence:</strong> 99.9% probability of finding a good model</li>
+        <li><strong>Inlier threshold:</strong> 3 pixels reprojection error</li>
+      </ul>
+
+      <h3>Project Structure</h3>
+      <pre><code>Panorama-FastR-Stitch/
+├── main.m                      # Entry point
+├── PanoramaStitcher.m          # Main pipeline 
+├── FastDetector.m              # Custom FAST implementation
+├── FeatureMatcher.m            # SURF matching and RANSAC
+├── ImageBlender.m              # Warping and blending
+├── utils/
+│   ├── loadAndPrepImages.m    # Image preprocessing
+│   └── saveResults.m          # Output handling
+├── demo_images/               # Test images
+└── output/                    # Generated panoramas</code></pre>
+
+      <h2>Challenges & Learnings</h2>
+      <p>
+        <strong>Challenge:</strong> FAST produces many features on edges, leading to false matches.
+        <br>
+        <strong>Solution:</strong> Added Harris filtering (FASTR) to suppress edge responses and keep only stable corners.
+      </p>
+      <p>
+        <strong>Challenge:</strong> Visible seams in overlap regions due to exposure differences.
+        <br>
+        <strong>Solution:</strong> Implemented distance-weighted feathering that smoothly transitions between images.
+      </p>
+      <p>
+        <strong>Challenge:</strong> RANSAC occasionally fails when images have large rotation or scale changes.
+        <br>
+        <strong>Solution:</strong> Increased iteration count and used SURF (rotation-invariant) instead of raw pixel patches.
+      </p>
+
+      <h2>Future Improvements</h2>
+      <ul>
+        <li><strong>Cylindrical projection:</strong> For wider FOV panoramas (>180°)</li>
+        <li><strong>Bundle adjustment:</strong> Global optimization instead of pairwise stitching</li>
+        <li><strong>Exposure compensation:</strong> Normalize brightness before blending</li>
+        <li><strong>GPU acceleration:</strong> Port MATLAB code to CUDA for real-time performance</li>
+      </ul>
+
+      <h2>Tech Stack</h2>
+      <ul>
+        <li><strong>MATLAB R2024b:</strong> Core implementation language</li>
+        <li><strong>Computer Vision Toolbox:</strong> SURF descriptors and utilities</li>
+        <li><strong>Image Processing Toolbox:</strong> Warping and blending functions</li>
+      </ul>
+
+      <h2>Links</h2>
+      <ul>
+        <li><a href="https://github.com/Gherra/Panorama-FastR-Stitch" target="_blank" rel="noopener noreferrer">GitHub Repository</a></li>
+      </ul>
+
+    </div>
+
+  </article>
+</BaseLayout>

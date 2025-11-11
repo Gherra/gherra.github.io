@@ -1,0 +1,190 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="MeetHalf — Raman Kumar" description="Fair meetup location finder for groups using multi-modal routing and smart POI suggestions.">
+  <article class="max-w-4xl mx-auto px-4 py-12">
+    
+    <!-- Back Button -->
+    <a href="/" class="inline-flex items-center gap-2 text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 mb-8 transition-colors">
+      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/>
+      </svg>
+      Back to Home
+    </a>
+
+    <!-- Header -->
+    <header
+        class="relative mb-12 -mx-4 md:mx-0 overflow-hidden rounded-2xl border border-slate-200/60 dark:border-slate-700/60"
+        >
+        <!-- Base soft gradient (visible in light & dark) -->
+        <div class="bg-gradient-to-br from-blue-50 to-cyan-50 dark:from-blue-950 dark:to-cyan-950">
+            <div class="px-4 md:px-8 py-10">
+            <div class="flex items-center gap-3 mb-4">
+                <span class="px-3 py-1 rounded-full text-sm font-medium bg-gradient-to-r from-blue-600 to-cyan-600 text-white shadow-sm">
+                Web
+                </span>
+                <span class="text-slate-600/80 dark:text-slate-300/80">October 2025 • Work in Progress</span>
+            </div>
+            <h1 class="text-4xl md:text-5xl font-bold tracking-tight">
+                <span class="bg-clip-text text-transparent bg-gradient-to-r from-slate-900 to-slate-700 dark:from-white dark:to-slate-300">
+                MeetHalf
+                </span>
+            </h1>
+            <p class="mt-3 text-lg text-slate-700/90 dark:text-slate-300/90 max-w-3xl">
+                Smart meeting planner that finds the fairest location for groups where everyone has different travel modes.
+            </p>
+            <div class="flex flex-wrap gap-3 mt-6">
+                <a href="https://github.com/Gherra/MeetHalf" target="_blank" rel="noopener noreferrer"
+                class="px-5 py-2 rounded-xl font-medium text-white bg-gradient-to-r from-blue-600 to-cyan-600 hover:scale-[1.02] active:scale-[.99] transition">
+                View Code
+                </a>
+            </div>
+            </div>
+        </div>
+
+        <!-- Decorative radial blobs for depth -->
+        <div class="pointer-events-none absolute inset-0 mix-blend-multiply opacity-60">
+            <div class="absolute -top-10 -left-16 w-64 h-64 rounded-full blur-3xl"
+                style='background:radial-gradient(60% 60% at 50% 50%, rgba(59,130,246,.35), transparent)'></div>
+            <div class="absolute -bottom-16 -right-10 w-72 h-72 rounded-full blur-3xl"
+                style='background:radial-gradient(60% 60% at 50% 50%, rgba(34,211,238,.35), transparent)'></div>
+        </div>
+        </header>
+
+        <section class="mb-6 grid grid-cols-2 md:grid-cols-4 gap-3">
+            <div class="glass panel p-4 text-center">
+                <div class="text-xs uppercase tracking-wide text-slate-500 dark:text-slate-400">People</div>
+                <div class="mt-1 text-xl font-semibold">2–8+</div>
+            </div>
+            <div class="glass panel p-4 text-center">
+                <div class="text-xs uppercase tracking-wide text-slate-500 dark:text-slate-400">Modes</div>
+                <div class="mt-1 text-xl font-semibold">Car • Transit • Walk</div>
+            </div>
+            <div class="glass panel p-4 text-center">
+                <div class="text-xs uppercase tracking-wide text-slate-500 dark:text-slate-400">Goal</div>
+                <div class="mt-1 text-xl font-semibold">Min Avg Time</div>
+            </div>
+            <div class="glass panel p-4 text-center">
+                <div class="text-xs uppercase tracking-wide text-slate-500 dark:text-slate-400">Status</div>
+                <div class="mt-1 text-xl font-semibold">WIP</div>
+            </div>
+        </section>
+
+    
+
+
+    <!-- Main Content -->
+    <div class="glass panel prose prose-lg prose-slate dark:prose-invert max-w-none
+            prose-headings:scroll-mt-24
+            prose-h2:mt-10 prose-h2:mb-4 prose-h2:tracking-tight
+            prose-h3:mt-6 prose-h3:mb-3
+            prose-p:leading-relaxed
+            prose-li:marker:text-slate-400
+            prose-a:text-blue-600 dark:prose-a:text-cyan-300 hover:prose-a:underline
+            px-5 md:px-8 py-6 md:py-8">
+
+
+
+        
+      
+      <h2>Problem & Motivation</h2>
+      <p>
+        Existing apps like MeetWays and Midpointr are great for 2 people, but fail when you need to coordinate groups:
+      </p>
+      <ul>
+        <li>Limited to 2-3 people</li>
+        <li>Force everyone to use the same travel mode (everyone drives OR everyone uses transit)</li>
+        <li>Don't show per-person travel times for each venue suggestion</li>
+      </ul>
+      <p>
+        <strong>MeetHalf solves all of these.</strong> It supports 2-8+ people, lets each person choose their own travel mode (driving 🚗, transit 🚇, or walking 🚶), and shows exact travel times for everyone at each suggested venue.
+      </p>
+
+      <h2>How It Works</h2>
+      <ol>
+        <li><strong>Add participants:</strong> Enter names, addresses (with Google autocomplete), and preferred travel modes</li>
+        <li><strong>Choose venue type:</strong> Café, restaurant, library, or park</li>
+        <li><strong>Get smart suggestions:</strong> Algorithm finds top 5 places optimized for fairness</li>
+        <li><strong>Compare options:</strong> See travel time breakdown for each person at each venue</li>
+        <li><strong>Navigate:</strong> Click "Open in Google Maps" to get directions</li>
+      </ol>
+
+      <h2>Fairness Algorithm</h2>
+      <p>
+        MeetHalf uses a <strong>balanced fairness algorithm</strong> that prioritizes venues where the group's average travel time is minimized:
+      </p>
+      <ol>
+        <li><strong>Calculate center point:</strong> Geometric average of all participant locations</li>
+        <li><strong>Search nearby venues:</strong> Query Google Places API within 3km radius</li>
+        <li><strong>Get travel times:</strong> For each venue, calculate travel time for each person using their chosen mode</li>
+        <li><strong>Calculate fairness metrics:</strong>
+          <ul>
+            <li><em>Average time:</em> Mean of all travel times</li>
+            <li><em>Max time:</em> Longest individual travel time</li>
+            <li><em>Time spread:</em> Difference between max and min times</li>
+          </ul>
+        </li>
+        <li><strong>Sort by average time:</strong> Venues with lowest average time appear first</li>
+        <li><strong>Highlight fair options:</strong> Badge venues where spread ≤ 5 minutes (everyone arrives within a similar timeframe)</li>
+      </ol>
+
+      <div class="not-prose glass panel p-4 my-6">
+        <p class="text-sm text-slate-600 dark:text-slate-300">
+            <strong>Why average time?</strong> It balances everyone’s convenience—nobody gets stuck with the 40-minute outlier.
+        </p>
+    </div>
+
+
+      <h2>Technical Stack</h2>
+      <ul>
+        <li><strong>Next.js 15:</strong> React framework with server-side rendering</li>
+        <li><strong>TypeScript:</strong> Type-safe development with better DX</li>
+        <li><strong>Tailwind CSS:</strong> Rapid UI development with utility classes</li>
+        <li><strong>Google Maps Platform:</strong> Maps JavaScript API, Places API, Directions API, Geocoding API</li>
+        <li><strong>Vercel:</strong> Deployment (coming soon)</li>
+      </ul>
+
+      <h2>Key Features</h2>
+      <ul>
+        <li><strong>Multi-person support:</strong> 2-8+ people (scales to larger groups)</li>
+        <li><strong>Per-person travel modes:</strong> Each participant chooses driving, transit, or walking</li>
+        <li><strong>Real-time travel times:</strong> Uses Google Directions API for accurate estimates</li>
+        <li><strong>Smart venue suggestions:</strong> Top 5 places sorted by fairness + ratings</li>
+        <li><strong>Interactive map:</strong> Visual display of participants and suggested venues</li>
+        <li><strong>Venue details:</strong> Ratings, price levels, and open hours from Google Places</li>
+      </ul>
+
+      <h2>Performance Considerations</h2>
+      <p>
+        For a group of 5 people and 20 candidate venues, the app makes ~100 API calls (5 people × 20 venues = 100 directions queries). To handle this efficiently:
+      </p>
+      <ul>
+        <li>API calls are batched and parallelized</li>
+        <li>Results are cached client-side to avoid redundant requests</li>
+        <li>Loading states keep users informed (~5-10 seconds for results)</li>
+      </ul>
+
+      <h2>Future Improvements</h2>
+      <ul>
+        <li>Cylindrical search instead of circular (better for groups along a line)</li>
+        <li>Save/share meeting plans with a URL</li>
+        <li>Allow custom venue types beyond the 4 defaults</li>
+        <li>Add preference weighting (e.g., prioritize minimizing one person's time)</li>
+        <li>Integration with calendar apps for one-click scheduling</li>
+      </ul>
+
+      <h2>Links</h2>
+      <ul>
+        <li><a href="https://github.com/Gherra/MeetHalf" target="_blank" rel="noopener noreferrer">GitHub Repository</a></li>
+      </ul>
+
+    </div>
+
+    <nav class="mt-10 flex items-center justify-between text-sm">
+  <a href="/projects/moviefinder" class="text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400">← MovieFinder</a>
+  <a href="/" class="text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400">Back to Home</a>
+</nav>
+
+  </article>
+</BaseLayout>

@@ -1,0 +1,122 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="MovieFinder — Raman Kumar" description="Modern Android app for discovering movies with swipe-based UI and personalized recommendations.">
+  <article class="max-w-4xl mx-auto px-4 py-12">
+    
+    <!-- Back Button -->
+    <a href="/" class="inline-flex items-center gap-2 text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 mb-8 transition-colors">
+      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/>
+      </svg>
+      Back to Home
+    </a>
+
+    <!-- Header -->
+    <header class="mb-12 -mx-4 px-4 py-8 bg-gradient-to-br from-green-50 to-emerald-50 dark:from-green-950 dark:to-emerald-950 rounded-2xl">
+
+      <div class="flex items-center gap-3 mb-4">
+        <span class="px-3 py-1 rounded-full text-sm font-medium bg-gradient-to-r from-green-500 to-emerald-600 text-white">
+          Android
+        </span>
+        <span class="text-slate-500 dark:text-slate-400">November 2024</span>
+      </div>
+      <h1 class="text-4xl md:text-5xl font-bold mb-4">MovieFinder</h1>
+      <p class="text-xl text-slate-600 dark:text-slate-400">
+        Modern Android app for discovering movies with swipe-based UI, personalized recommendations, and seamless TMDb API integration.
+      </p>
+      <div class="flex gap-3 mt-6">
+        <a href="https://github.com/Gherra/MovieFinder" target="_blank" rel="noopener noreferrer" class="px-5 py-2 rounded-lg bg-gradient-to-r from-blue-600 to-violet-600 text-white font-medium hover:shadow-lg transition-all">
+          View Code
+        </a>
+        <a href="https://github.com/Gherra/MovieFinder/releases" target="_blank" rel="noopener noreferrer" class="px-5 py-2 rounded-lg border border-slate-300 dark:border-slate-600 font-medium hover:bg-slate-100 dark:hover:bg-slate-700 transition-all">
+          Download APK
+        </a>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="prose prose-slate dark:prose-invert max-w-none">
+      
+      <h2>Problem & Context</h2>
+      <p>
+        Movie discovery apps often overwhelm users with endless scrolling and complex filters. The goal was to create an intuitive, engaging experience that helps users discover movies they'll actually want to watch — without the friction.
+      </p>
+
+      <h2>Solution</h2>
+      <p>
+        MovieFinder uses a Tinder-style swipe interface where users can quickly indicate interest (right swipe) or pass (left swipe). The app learns from these interactions to provide increasingly personalized recommendations.
+      </p>
+
+      <h2>Key Features</h2>
+      <ul>
+        <li><strong>Swipe-based discovery:</strong> Intuitive Tinder-like UI for quick browsing through movies</li>
+        <li><strong>Personalized recommendations:</strong> Analyzes user preferences (genre, rating, release year) to suggest relevant content</li>
+        <li><strong>Efficient data handling:</strong> Room database caches movie data with pagination for smooth scrolling</li>
+        <li><strong>Filter system:</strong> Bottom navigation with genre and rating filters</li>
+        <li><strong>Modern UI:</strong> Material Design 3 with full light/dark theme support</li>
+      </ul>
+
+      <h2>Technical Implementation</h2>
+      
+      <h3>Architecture</h3>
+      <p>
+        Built with <strong>MVVM architecture</strong> to separate concerns and enable testability:
+      </p>
+      <ul>
+        <li><strong>Model:</strong> Room database entities for local caching</li>
+        <li><strong>ViewModel:</strong> Manages UI state and business logic with Kotlin Coroutines</li>
+        <li><strong>View:</strong> Jetpack Compose UI with declarative state management</li>
+      </ul>
+
+      <h3>Tech Stack</h3>
+      <ul>
+        <li><strong>Jetpack Compose:</strong> Modern declarative UI framework</li>
+        <li><strong>Room Database:</strong> Local persistence with efficient caching</li>
+        <li><strong>Retrofit:</strong> Type-safe HTTP client for TMDb API integration</li>
+        <li><strong>Kotlin Coroutines:</strong> Async operations without blocking the main thread</li>
+        <li><strong>TMDb API:</strong> Comprehensive movie database with ratings, posters, and metadata</li>
+      </ul>
+
+      <h3>Recommendation Algorithm</h3>
+      <p>
+        The app tracks user swipes to build a preference profile:
+      </p>
+      <ol>
+        <li>Record genre preferences from right-swiped movies</li>
+        <li>Track preferred rating ranges (e.g., user tends to like 7.5+ rated movies)</li>
+        <li>Weight recent interactions more heavily than older ones</li>
+        <li>Fetch new recommendations filtered by these learned preferences</li>
+      </ol>
+
+      <h2>Results & Impact</h2>
+      <ul>
+        <li>Clean, intuitive interface that users can understand instantly</li>
+        <li>Efficient pagination reduces API calls and improves performance</li>
+        <li>Local caching enables offline browsing of previously loaded content</li>
+        <li>Demonstrates modern Android development best practices</li>
+      </ul>
+
+      <h2>Challenges & Learnings</h2>
+      <p>
+        <strong>Challenge:</strong> Implementing smooth swipe animations while maintaining performance.
+        <br>
+        <strong>Solution:</strong> Used Jetpack Compose's gesture detection with optimized recomposition to avoid lag.
+      </p>
+      <p>
+        <strong>Challenge:</strong> Managing pagination with Room and Retrofit to avoid duplicate data.
+        <br>
+        <strong>Solution:</strong> Implemented cache-first strategy with pagination keys stored in the database.
+      </p>
+
+      <h2>Links</h2>
+      <ul>
+        <li><a href="https://github.com/Gherra/MovieFinder" target="_blank" rel="noopener noreferrer">GitHub Repository</a></li>
+        <li><a href="https://github.com/Gherra/MovieFinder/releases" target="_blank" rel="noopener noreferrer">Download APK</a></li>
+      </ul>
+
+    </div>
+
+  </article>
+</BaseLayout>

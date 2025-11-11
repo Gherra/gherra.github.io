@@ -1,2 +1,69 @@
 @import "tailwindcss";
 @custom-variant dark (&:where(.dark, .dark *));
+@plugin "@tailwindcss/typography";
+
+
+.glass {
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    background: color-mix(in oklab, white 60%, transparent);
+    border: 1px solid color-mix(in oklab, #cbd5e1 40%, transparent);
+    /* slate-300 */
+}
+
+.dark .glass {
+    background: color-mix(in oklab, rgb(2 6 23) 60%, transparent);
+    /* slate-950 */
+    border-color: color-mix(in oklab, rgb(71 85 105) 40%, transparent);
+    /* slate-600 */
+}
+
+.panel {
+    border-radius: 1rem;
+    /* rounded-2xl vibe */
+    box-shadow:
+        0 1px 0 0 rgba(0, 0, 0, .04),
+        0 8px 30px rgba(2, 6, 23, .06);
+}
+
+.dark .panel {
+    box-shadow:
+        0 1px 0 0 rgba(0, 0, 0, .12),
+        0 8px 30px rgba(0, 0, 0, .12);
+}
+
+
+.prose ul>li {
+    position: relative;
+    padding-left: 0.25rem;
+}
+
+.prose ul>li::marker {
+    content: '▸';
+    color: rgb(59 130 246);
+    /* blue-500 */
+    font-weight: bold;
+}
+
+.dark .prose ul>li::marker {
+    color: rgb(34 211 238);
+    /* cyan-400 */
+}
+
+.prose ol>li {
+    padding-left: 0.25rem;
+}
+
+.prose ol>li::marker {
+    color: rgb(59 130 246);
+    font-weight: 700;
+}
+
+.dark .prose ol>li::marker {
+    color: rgb(34 211 238);
+}
+
+
+.prose li+li {
+    margin-top: 0.75rem;
+}
