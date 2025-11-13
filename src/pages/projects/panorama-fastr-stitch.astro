@@ -1,197 +1,496 @@
 ---
-import BaseLayout from '../../layouts/BaseLayout.astro';
+import BaseLayout from "../../layouts/BaseLayout.astro";
 ---
 
-<BaseLayout title="Panorama FastR-Stitch — Raman Kumar" description="High-performance panorama stitching using MATLAB with custom FAST detection and RANSAC homography.">
+<BaseLayout
+  title="Panorama FastR-Stitch — Raman Kumar"
+  description="High-performance panorama stitching using MATLAB with custom FAST detection and RANSAC homography."
+>
   <article class="max-w-4xl mx-auto px-4 py-12">
-    
     <!-- Back Button -->
-    <a href="/" class="inline-flex items-center gap-2 text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 mb-8 transition-colors">
-      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/>
+    <a
+      href="/"
+      class="inline-flex items-center gap-2 text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 mb-8 transition-colors"
+    >
+      <svg
+        class="w-5 h-5"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
       </svg>
       Back to Home
     </a>
 
     <!-- Header -->
-    <header class="mb-12 -mx-4 px-4 py-8 bg-gradient-to-br from-purple-50 to-pink-50 dark:from-purple-950 dark:to-pink-950 rounded-2xl">
-      <div class="flex items-center gap-3 mb-4">
-        <span class="px-3 py-1 rounded-full text-sm font-medium bg-gradient-to-r from-purple-500 to-pink-600 text-white">
-          Computer Vision
-        </span>
-        <span class="text-slate-500 dark:text-slate-400">March 2024</span>
+    <header
+      class="relative mb-12 -mx-4 md:mx-0 overflow-hidden rounded-2xl border border-slate-200/60 dark:border-slate-700/60"
+    >
+      <!-- Base soft gradient (visible in light & dark) -->
+      <div
+        class="relative bg-gradient-to-br from-purple-100 to-pink-100 dark:from-purple-950 dark:to-pink-950"
+      >
+        <div class="px-4 md:px-8 py-10">
+          <div class="flex items-center gap-3 mb-4">
+            <span
+              class="px-3 py-1 rounded-full text-sm font-medium bg-gradient-to-r from-purple-600 to-pink-600 text-white shadow-sm"
+            >
+              Computer Vision
+            </span>
+            <span class="text-slate-600/80 dark:text-slate-300/80"
+              >March 2024</span
+            >
+          </div>
+          <h1 class="text-4xl md:text-5xl font-bold tracking-tight">
+            <span
+              class="bg-clip-text text-transparent bg-gradient-to-r from-slate-900 to-slate-700 dark:from-white dark:to-slate-300"
+            >
+              Panorama FastR-Stitch
+            </span>
+          </h1>
+          <p
+            class="mt-3 text-lg text-slate-700/90 dark:text-slate-300/90 max-w-3xl"
+          >
+            High-performance panorama stitching using MATLAB with custom FAST
+            corner detection, SURF descriptors, and RANSAC homography
+            estimation.
+          </p>
+          <div class="flex flex-wrap gap-3 mt-6">
+            <a
+              href="https://github.com/Gherra/Panorama-FastR-Stitch"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="px-5 py-2 rounded-xl font-medium text-white bg-gradient-to-r from-purple-600 to-pink-600 hover:scale-[1.02] active:scale-[.99] transition"
+            >
+              View Code
+            </a>
+          </div>
+        </div>
       </div>
-      <h1 class="text-4xl md:text-5xl font-bold mb-4">Panorama FastR-Stitch</h1>
-      <p class="text-xl text-slate-600 dark:text-slate-400">
-        High-performance panorama stitching using MATLAB with custom FAST corner detection, SURF descriptors, and RANSAC homography estimation.
-      </p>
-      <div class="flex gap-3 mt-6">
-        <a href="https://github.com/Gherra/Panorama-FastR-Stitch" target="_blank" rel="noopener noreferrer" class="px-5 py-2 rounded-lg bg-gradient-to-r from-blue-600 to-violet-600 text-white font-medium hover:shadow-lg transition-all">
-          View Code
-        </a>
+
+      <!-- Decorative radial blobs for depth -->
+      <div
+        class="pointer-events-none absolute inset-0 mix-blend-multiply opacity-60"
+      >
+        <div
+          class="absolute -top-10 -left-16 w-64 h-64 rounded-full blur-3xl"
+          style="background:radial-gradient(60% 60% at 50% 50%, rgba(168,85,247,.35), transparent)"
+        >
+        </div>
+        <div
+          class="absolute -bottom-16 -right-10 w-72 h-72 rounded-full blur-3xl"
+          style="background:radial-gradient(60% 60% at 50% 50%, rgba(236,72,153,.35), transparent)"
+        >
+        </div>
       </div>
     </header>
 
+    <!-- Stats Grid -->
+    <section class="mb-6 grid grid-cols-2 md:grid-cols-4 gap-3">
+      <div class="glass panel p-4 text-center">
+        <div
+          class="text-xs uppercase tracking-wide text-slate-500 dark:text-slate-400"
+        >
+          Images
+        </div>
+        <div class="mt-1 text-xl font-semibold">2–20</div>
+      </div>
+      <div class="glass panel p-4 text-center">
+        <div
+          class="text-xs uppercase tracking-wide text-slate-500 dark:text-slate-400"
+        >
+          Detection
+        </div>
+        <div class="mt-1 text-xl font-semibold">FAST + Harris</div>
+      </div>
+      <div class="glass panel p-4 text-center">
+        <div
+          class="text-xs uppercase tracking-wide text-slate-500 dark:text-slate-400"
+        >
+          Matching
+        </div>
+        <div class="mt-1 text-xl font-semibold">SURF + RANSAC</div>
+      </div>
+      <div class="glass panel p-4 text-center">
+        <div
+          class="text-xs uppercase tracking-wide text-slate-500 dark:text-slate-400"
+        >
+          Speed
+        </div>
+        <div class="mt-1 text-xl font-semibold">&lt;2s</div>
+      </div>
+    </section>
+
+    <!-- Results Section -->
+    <section class="mb-8">
+      <h2 class="text-2xl font-bold mb-6 text-center">
+        Results (inputs → panorama)
+      </h2>
+
+      <!-- Set 1: WAC Bennett Library -->
+      <div class="glass panel p-6 mb-6">
+        <h3 class="text-lg font-semibold mb-4">
+          Set 1: WAC Bennett Library (2 images → panorama)
+        </h3>
+        <div class="grid grid-cols-2 gap-3 mb-4">
+          <div class="glass panel overflow-hidden">
+            <img
+              src="/images/panorama/library-1.png"
+              alt="Library input 1"
+              class="w-full h-auto max-h-100 object-cover"
+            />
+          </div>
+          <div class="glass panel overflow-hidden">
+            <img
+              src="/images/panorama/library-2.png"
+              alt="Library input 2"
+              class="w-full h-auto max-h-100 object-cover"
+            />
+          </div>
+        </div>
+        <div class="glass panel overflow-hidden">
+          <img
+            src="/images/panorama/library-panorama.png"
+            alt="Library panorama result"
+            class="w-full h-auto max-h-120 object-contain"
+          />
+        </div>
+      </div>
+
+      <!-- Set 2: Academic Building -->
+      <div class="glass panel p-6 mb-6">
+        <h3 class="text-lg font-semibold mb-4">
+          Set 2: Academic Building (4 images → panorama)
+        </h3>
+        <div class="grid grid-cols-4 gap-2 mb-4">
+          <div class="glass panel overflow-hidden">
+            <img
+              src="/images/panorama/academic-1.png"
+              alt="Academic input 1"
+              class="w-full h-auto max-h-60 object-cover"
+            />
+          </div>
+          <div class="glass panel overflow-hidden">
+            <img
+              src="/images/panorama/academic-2.png"
+              alt="Academic input 2"
+              class="w-full h-auto max-h-60 object-cover"
+            />
+          </div>
+          <div class="glass panel overflow-hidden">
+            <img
+              src="/images/panorama/academic-3.png"
+              alt="Academic input 3"
+              class="w-full h-auto max-h-60 object-cover"
+            />
+          </div>
+          <div class="glass panel overflow-hidden">
+            <img
+              src="/images/panorama/academic-4.png"
+              alt="Academic input 4"
+              class="w-full h-auto max-h-60 object-cover"
+            />
+          </div>
+        </div>
+        <div class="glass panel overflow-hidden">
+          <img
+            src="/images/panorama/academic-panorama.png"
+            alt="Academic panorama result"
+            class="w-full h-auto max-h-120 object-contain"
+          />
+        </div>
+      </div>
+
+      <!-- Set 3: Reflection Pond -->
+      <div class="glass panel p-6 mb-6">
+        <h3 class="text-lg font-semibold mb-4">
+          Set 3: Reflection Pond (4 images → panorama)
+        </h3>
+        <div class="grid grid-cols-4 gap-2 mb-4">
+          <div class="glass panel overflow-hidden">
+            <img
+              src="/images/panorama/pond-1.png"
+              alt="Pond input 1"
+              class="w-full h-auto max-h-60 object-cover"
+            />
+          </div>
+          <div class="glass panel overflow-hidden">
+            <img
+              src="/images/panorama/pond-2.png"
+              alt="Pond input 2"
+              class="w-full h-auto max-h-60 object-cover"
+            />
+          </div>
+          <div class="glass panel overflow-hidden">
+            <img
+              src="/images/panorama/pond-3.png"
+              alt="Pond input 3"
+              class="w-full h-auto max-h-60 object-cover"
+            />
+          </div>
+          <div class="glass panel overflow-hidden">
+            <img
+              src="/images/panorama/pond-4.png"
+              alt="Pond input 4"
+              class="w-full h-auto max-h-60 object-cover"
+            />
+          </div>
+        </div>
+        <div class="glass panel overflow-hidden">
+          <img
+            src="/images/panorama/pond-panorama.png"
+            alt="Pond panorama result"
+            class="w-full h-auto max-h-120 object-contain"
+          />
+        </div>
+      </div>
+    </section>
+
+    <p
+      class="mb-12 text-sm text-center text-slate-500 dark:text-slate-400 max-w-3xl mx-auto"
+    >
+      Test images captured around Simon Fraser University, Burnaby campus. Each
+      set shows input images and the resulting stitched panorama.
+    </p>
+
+    <!-- At a Glance -->
+    <section class="mb-8 glass panel p-6">
+      <h2 class="text-xl font-bold mb-4">At a Glance</h2>
+      <ul class="space-y-2 text-slate-600 dark:text-slate-300">
+        <li>
+          <strong class="text-slate-900 dark:text-slate-100">Problem:</strong> Creating
+          seamless panoramas from overlapping images with rotation, scale, and lighting
+          variations.
+        </li>
+        <li>
+          <strong class="text-slate-900 dark:text-slate-100">Solution:</strong> Custom
+          FAST detector with Harris filtering + SURF matching + RANSAC homography
+          + multi-band blending.
+        </li>
+        <li>
+          <strong class="text-slate-900 dark:text-slate-100">My role:</strong> Implemented
+          FAST detection from scratch, integrated SURF/RANSAC pipeline, optimized
+          for speed.
+        </li>
+      </ul>
+    </section>
+
     <!-- Main Content -->
-    <div class="prose prose-slate dark:prose-invert max-w-none">
-      
+    <div
+      class="glass panel prose prose-lg prose-slate dark:prose-invert max-w-none
+            prose-headings:scroll-mt-24
+            prose-h2:mt-10 prose-h2:mb-4 prose-h2:tracking-tight
+            prose-h3:mt-6 prose-h3:mb-3
+            prose-p:leading-relaxed
+            prose-li:marker:text-slate-400
+            prose-a:text-purple-600 dark:prose-a:text-pink-300 hover:prose-a:underline
+            px-5 md:px-8 py-6 md:py-8"
+    >
       <h2>Project Overview</h2>
       <p>
-        A complete panorama stitching pipeline that implements <strong>FAST corner detection from scratch</strong>, combines it with SURF descriptors for robust matching, and uses RANSAC to estimate homographies for accurate alignment. The result: seamless panoramas from 2-20 images.
+        A complete panorama stitching pipeline that implements <strong
+          >FAST corner detection from scratch</strong
+        >, combines it with SURF descriptors for robust matching, and uses
+        RANSAC to estimate homographies for accurate alignment. The result:
+        seamless panoramas from 2-20 images.
       </p>
-
-      <h2>Key Features</h2>
-      <ul>
-        <li><strong>Custom FAST detector:</strong> Implemented from scratch with optional Harris corner filtering (FASTR variant)</li>
-        <li><strong>SURF descriptors:</strong> Rotation-invariant 64-dimensional feature vectors for robust matching</li>
-        <li><strong>RANSAC homography:</strong> Estimates transformation with 99.9% confidence, filtering out noisy matches</li>
-        <li><strong>Linear feathering:</strong> Distance-weighted blending in overlap regions for seamless transitions</li>
-        <li><strong>Handles 2-20 images:</strong> Automatically chains transformations for multi-image panoramas</li>
-      </ul>
 
       <h2>How It Works</h2>
-      
+
       <h3>1. FAST Detection</h3>
       <p>
-        FAST (Features from Accelerated Segment Test) examines a 16-pixel circle around each candidate point. A corner is detected if 12 or more contiguous pixels are all brighter or darker than the center by a threshold (15% intensity difference).
+        FAST (Features from Accelerated Segment Test) examines a 16-pixel circle
+        around each candidate point. A corner is detected if 12 or more
+        contiguous pixels are all brighter or darker than the center by a
+        threshold (15% intensity difference).
       </p>
       <p>
-        <strong>FASTR Enhancement:</strong> After FAST detection, run Harris corner response filtering to remove unstable edge features. This reduces false positives and improves matching quality.
+        <strong>FASTR Enhancement:</strong> After FAST detection, run Harris corner
+        response filtering to remove unstable edge features. This reduces false positives
+        and improves matching quality.
       </p>
 
       <h3>2. SURF Matching</h3>
       <p>
-        For each detected corner, compute a 64-dimensional SURF descriptor (rotation-invariant). Match descriptors between image pairs using nearest-neighbor search with <strong>Lowe's ratio test</strong> (threshold 0.75) to filter ambiguous matches.
+        For each detected corner, compute a 64-dimensional SURF descriptor
+        (rotation-invariant). Match descriptors between image pairs using
+        nearest-neighbor search with <strong>Lowe's ratio test</strong> (threshold
+        0.75) to filter ambiguous matches.
       </p>
 
       <h3>3. RANSAC Homography</h3>
       <p>
         From the matched features, estimate a homography matrix using RANSAC:
       </p>
-      <ul>
+      <ol>
         <li>Randomly sample 4 point correspondences</li>
         <li>Compute homography from these 4 points</li>
-        <li>Count inliers (matches with reprojection error < 3 pixels)</li>
+        <li>Count inliers (matches with reprojection error &lt; 3 pixels)</li>
         <li>Repeat 500 iterations, keep best model</li>
         <li>Refit homography using all inliers for final transformation</li>
-      </ul>
+      </ol>
 
       <h3>4. Warping & Blending</h3>
       <p>
-        Warp one image onto the other's coordinate frame using the homography. In overlap regions, use <strong>linear feathering</strong>: blend pixels based on distance from each image's edge. This creates smooth transitions without visible seams.
+        Warp one image onto the other's coordinate frame using the homography.
+        In overlap regions, use <strong>linear feathering</strong>: blend pixels
+        based on distance from each image's edge. This creates smooth
+        transitions without visible seams.
       </p>
 
       <h2>Performance Results</h2>
-      <table>
-        <thead>
-          <tr>
-            <th>Image Set</th>
-            <th>Images</th>
-            <th>Features/Image</th>
-            <th>Matches</th>
-            <th>Inliers</th>
-            <th>Time</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Set 1 (Library)</td>
-            <td>2</td>
-            <td>~500</td>
-            <td>67</td>
-            <td>50.7%</td>
-            <td>0.96s</td>
-          </tr>
-          <tr>
-            <td>Set 2 (Building)</td>
-            <td>4</td>
-            <td>~500</td>
-            <td>89</td>
-            <td>60.7%</td>
-            <td>1.84s</td>
-          </tr>
-          <tr>
-            <td>Set 3 (Pond)</td>
-            <td>4</td>
-            <td>~500</td>
-            <td>91</td>
-            <td>48.2%</td>
-            <td>1.96s</td>
-          </tr>
-        </tbody>
-      </table>
-
-      <p>
-        Test images captured around Simon Fraser University, Burnaby campus.
-      </p>
+      <div class="not-prose overflow-x-auto">
+        <table class="min-w-full text-sm">
+          <thead>
+            <tr class="border-b border-slate-300 dark:border-slate-700">
+              <th class="text-left py-2 px-3">Image Set</th>
+              <th class="text-left py-2 px-3">Images</th>
+              <th class="text-left py-2 px-3">Features/Image</th>
+              <th class="text-left py-2 px-3">Matches</th>
+              <th class="text-left py-2 px-3">Inliers</th>
+              <th class="text-left py-2 px-3">Time</th>
+            </tr>
+          </thead>
+          <tbody class="text-slate-600 dark:text-slate-300">
+            <tr class="border-b border-slate-200 dark:border-slate-800">
+              <td class="py-2 px-3">Set 1 (Library)</td>
+              <td class="py-2 px-3">2</td>
+              <td class="py-2 px-3">~500</td>
+              <td class="py-2 px-3">67</td>
+              <td class="py-2 px-3">50.7%</td>
+              <td class="py-2 px-3">0.96s</td>
+            </tr>
+            <tr class="border-b border-slate-200 dark:border-slate-800">
+              <td class="py-2 px-3">Set 2 (Building)</td>
+              <td class="py-2 px-3">4</td>
+              <td class="py-2 px-3">~500</td>
+              <td class="py-2 px-3">89</td>
+              <td class="py-2 px-3">60.7%</td>
+              <td class="py-2 px-3">1.84s</td>
+            </tr>
+            <tr>
+              <td class="py-2 px-3">Set 3 (Pond)</td>
+              <td class="py-2 px-3">4</td>
+              <td class="py-2 px-3">~500</td>
+              <td class="py-2 px-3">91</td>
+              <td class="py-2 px-3">48.2%</td>
+              <td class="py-2 px-3">1.96s</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
 
       <h2>Technical Implementation</h2>
-      
+
       <h3>FAST Parameters</h3>
       <ul>
-        <li><strong>Intensity threshold:</strong> 0.15 (15% brightness difference)</li>
-        <li><strong>Contiguous pixels:</strong> N=12 (75% of the 16-pixel circle)</li>
-        <li><strong>Harris threshold:</strong> 0.005 for filtering weak corners</li>
+        <li>
+          <strong>Intensity threshold:</strong> 0.15 (15% brightness difference)
+        </li>
+        <li>
+          <strong>Contiguous pixels:</strong> N=12 (75% of the 16-pixel circle)
+        </li>
+        <li>
+          <strong>Harris threshold:</strong> 0.005 for filtering weak corners
+        </li>
       </ul>
 
       <h3>RANSAC Configuration</h3>
       <ul>
         <li><strong>Max trials:</strong> 500 iterations</li>
-        <li><strong>Confidence:</strong> 99.9% probability of finding a good model</li>
+        <li>
+          <strong>Confidence:</strong> 99.9% probability of finding a good model
+        </li>
         <li><strong>Inlier threshold:</strong> 3 pixels reprojection error</li>
-      </ul>
-
-      <h3>Project Structure</h3>
-      <pre><code>Panorama-FastR-Stitch/
-├── main.m                      # Entry point
-├── PanoramaStitcher.m          # Main pipeline 
-├── FastDetector.m              # Custom FAST implementation
-├── FeatureMatcher.m            # SURF matching and RANSAC
-├── ImageBlender.m              # Warping and blending
-├── utils/
-│   ├── loadAndPrepImages.m    # Image preprocessing
-│   └── saveResults.m          # Output handling
-├── demo_images/               # Test images
-└── output/                    # Generated panoramas</code></pre>
-
-      <h2>Challenges & Learnings</h2>
-      <p>
-        <strong>Challenge:</strong> FAST produces many features on edges, leading to false matches.
-        <br>
-        <strong>Solution:</strong> Added Harris filtering (FASTR) to suppress edge responses and keep only stable corners.
-      </p>
-      <p>
-        <strong>Challenge:</strong> Visible seams in overlap regions due to exposure differences.
-        <br>
-        <strong>Solution:</strong> Implemented distance-weighted feathering that smoothly transitions between images.
-      </p>
-      <p>
-        <strong>Challenge:</strong> RANSAC occasionally fails when images have large rotation or scale changes.
-        <br>
-        <strong>Solution:</strong> Increased iteration count and used SURF (rotation-invariant) instead of raw pixel patches.
-      </p>
-
-      <h2>Future Improvements</h2>
-      <ul>
-        <li><strong>Cylindrical projection:</strong> For wider FOV panoramas (>180°)</li>
-        <li><strong>Bundle adjustment:</strong> Global optimization instead of pairwise stitching</li>
-        <li><strong>Exposure compensation:</strong> Normalize brightness before blending</li>
-        <li><strong>GPU acceleration:</strong> Port MATLAB code to CUDA for real-time performance</li>
       </ul>
 
       <h2>Tech Stack</h2>
       <ul>
         <li><strong>MATLAB R2024b:</strong> Core implementation language</li>
-        <li><strong>Computer Vision Toolbox:</strong> SURF descriptors and utilities</li>
-        <li><strong>Image Processing Toolbox:</strong> Warping and blending functions</li>
+        <li>
+          <strong>Computer Vision Toolbox:</strong> SURF descriptors and utilities
+        </li>
+        <li>
+          <strong>Image Processing Toolbox:</strong> Warping and blending functions
+        </li>
+      </ul>
+
+      <h2>Challenges & Learnings</h2>
+      <div class="not-prose space-y-4">
+        <div class="glass panel p-5">
+          <p class="text-slate-900 dark:text-slate-100 font-semibold mb-2">
+            Challenge: FAST produces many features on edges, leading to false
+            matches.
+          </p>
+          <p class="text-slate-600 dark:text-slate-400">
+            Solution: Added Harris filtering (FASTR) to suppress edge responses
+            and keep only stable corners.
+          </p>
+        </div>
+        <div class="glass panel p-5">
+          <p class="text-slate-900 dark:text-slate-100 font-semibold mb-2">
+            Challenge: Visible seams in overlap regions due to exposure
+            differences.
+          </p>
+          <p class="text-slate-600 dark:text-slate-400">
+            Solution: Implemented distance-weighted feathering that smoothly
+            transitions between images.
+          </p>
+        </div>
+        <div class="glass panel p-5">
+          <p class="text-slate-900 dark:text-slate-100 font-semibold mb-2">
+            Challenge: RANSAC occasionally fails when images have large rotation
+            or scale changes.
+          </p>
+          <p class="text-slate-600 dark:text-slate-400">
+            Solution: Increased iteration count and used SURF
+            (rotation-invariant) instead of raw pixel patches.
+          </p>
+        </div>
+      </div>
+
+      <h2>Future Improvements</h2>
+      <ul>
+        <li>Cylindrical projection for wider FOV panoramas (&gt;180°)</li>
+        <li>
+          Bundle adjustment for global optimization instead of pairwise
+          stitching
+        </li>
+        <li>Exposure compensation to normalize brightness before blending</li>
+        <li>
+          GPU acceleration by porting MATLAB code to CUDA for real-time
+          performance
+        </li>
       </ul>
 
       <h2>Links</h2>
       <ul>
-        <li><a href="https://github.com/Gherra/Panorama-FastR-Stitch" target="_blank" rel="noopener noreferrer">GitHub Repository</a></li>
+        <li>
+          <a
+            href="https://github.com/Gherra/Panorama-FastR-Stitch"
+            target="_blank"
+            rel="noopener noreferrer">GitHub Repository</a
+          >
+        </li>
       </ul>
-
     </div>
 
+    <!-- Navigation -->
+    <nav class="mt-10 flex items-center justify-between text-sm text-slate-500">
+      <a
+        href="/projects/meethalf"
+        class="inline-flex items-center gap-2 hover:text-slate-700 dark:hover:text-slate-300"
+      >
+        <span aria-hidden>←</span> Previous: MeetHalf
+      </a>
+      <a href="/" class="hover:text-slate-700 dark:hover:text-slate-300"
+        >Back to Home</a
+      >
+    </nav>
   </article>
 </BaseLayout>

@@ -33,34 +33,36 @@
 }
 
 
+
 .prose ul>li {
     position: relative;
-    padding-left: 0.25rem;
+    padding-left: 0.5rem;
 }
 
 .prose ul>li::marker {
     content: '▸';
-    color: rgb(59 130 246);
-    /* blue-500 */
+    color: rgb(34 211 238);
+    /* cyan-400 */
     font-weight: bold;
+    font-size: 1.1em;
 }
 
 .dark .prose ul>li::marker {
-    color: rgb(34 211 238);
-    /* cyan-400 */
+    color: rgb(6 182 212);
+    /* cyan-500 */
 }
 
 .prose ol>li {
-    padding-left: 0.25rem;
+    padding-left: 0.5rem;
 }
 
 .prose ol>li::marker {
-    color: rgb(59 130 246);
+    color: rgb(34 211 238);
     font-weight: 700;
 }
 
 .dark .prose ol>li::marker {
-    color: rgb(34 211 238);
+    color: rgb(6 182 212);
 }
 
 
