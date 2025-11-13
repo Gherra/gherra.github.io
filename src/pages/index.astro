@@ -1,10 +1,12 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
-import Hero from '../components/Hero.astro';
-import ProjectCard from '../components/ProjectCard.astro';
-import { projects } from '../data/projects';
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Hero from "../components/Hero.astro";
+import ProjectCard from "../components/ProjectCard.astro";
+import { projects } from "../data/projects";
 
-const featuredProjects = projects.filter(p => p.featured).sort((a, b) => b.date.getTime() - a.date.getTime());
+const featuredProjects = projects
+  .filter((p) => p.featured)
+  .sort((a, b) => b.date.getTime() - a.date.getTime());
 ---
 
 <BaseLayout title="Raman Kumar — Android, ML, Web Developer">
@@ -12,22 +14,20 @@ const featuredProjects = projects.filter(p => p.featured).sort((a, b) => b.date.
 
   <!-- Featured Projects Section -->
   <section class="max-w-6xl mx-auto px-4 py-8">
-
     <div class="text-center mb-12">
       <h2 class="text-3xl font-bold mb-4">Featured Projects</h2>
       <p class="text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
-        Building across Android, Computer Vision, and Web — each project solves real problems with clean code.
+        Building across Android, Computer Vision, and Web — each project solves
+        real problems with clean code.
       </p>
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-      {featuredProjects.map(project => (
-        <ProjectCard {...project} />
-      ))}
+      {featuredProjects.map((project) => <ProjectCard {...project} />)}
     </div>
 
     <div class="text-center mt-12">
-      <a 
+      <a
         href="https://github.com/Gherra"
         target="_blank"
         rel="noopener noreferrer"
