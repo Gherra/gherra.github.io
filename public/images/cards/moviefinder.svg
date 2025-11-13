@@ -1,0 +1,53 @@
+<svg width="800" height="600" viewBox="0 0 800 600" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background gradient -->
+  <rect width="800" height="600" fill="url(#paint0_linear_movie)"/>
+  
+  <!-- Phone outline -->
+  <g transform="translate(400, 300)">
+    <!-- Phone body -->
+    <rect x="-140" y="-220" width="280" height="440" rx="30" fill="#1e293b" stroke="#334155" stroke-width="4"/>
+    
+    <!-- Screen -->
+    <rect x="-130" y="-200" width="260" height="380" rx="20" fill="#0f172a"/>
+    
+    <!-- Movie card (center) -->
+    <rect x="-110" y="-160" width="220" height="300" rx="16" fill="url(#paint1_linear_movie)"/>
+    
+    <!-- Movie title area -->
+    <rect x="-100" y="100" width="200" height="30" rx="8" fill="#ffffff" opacity="0.9"/>
+    
+    <!-- Rating stars -->
+    <g transform="translate(-80, 150)" opacity="0.9">
+      <path d="M12,2 L15,9 L22,10 L17,15 L18,22 L12,18 L6,22 L7,15 L2,10 L9,9 Z" fill="#fbbf24" transform="scale(0.8)"/>
+      <path d="M12,2 L15,9 L22,10 L17,15 L18,22 L12,18 L6,22 L7,15 L2,10 L9,9 Z" fill="#fbbf24" transform="translate(24,0) scale(0.8)"/>
+      <path d="M12,2 L15,9 L22,10 L17,15 L18,22 L12,18 L6,22 L7,15 L2,10 L9,9 Z" fill="#fbbf24" transform="translate(48,0) scale(0.8)"/>
+    </g>
+    
+    <!-- Swipe gesture indicators -->
+    <!-- Left arrow -->
+    <g transform="translate(-180, 0)" opacity="0.6">
+      <path d="M0,0 L-20,-15 L-20,15 Z" fill="#ef4444"/>
+      <path d="M-5,0 L-25,-15 L-25,15 Z" fill="#ef4444" opacity="0.5"/>
+    </g>
+    
+    <!-- Right arrow -->
+    <g transform="translate(180, 0)" opacity="0.6">
+      <path d="M0,0 L20,-15 L20,15 Z" fill="#10b981"/>
+      <path d="M5,0 L25,-15 L25,15 Z" fill="#10b981" opacity="0.5"/>
+    </g>
+    
+    <!-- Home button indicator -->
+    <circle cx="0" cy="210" r="8" fill="#64748b"/>
+  </g>
+  
+  <defs>
+    <linearGradient id="paint0_linear_movie" x1="0" y1="0" x2="800" y2="600" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#10b981"/>
+      <stop offset="1" stop-color="#059669"/>
+    </linearGradient>
+    <linearGradient id="paint1_linear_movie" x1="0" y1="0" x2="220" y2="300" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#6366f1"/>
+      <stop offset="1" stop-color="#8b5cf6"/>
+    </linearGradient>
+  </defs>
+</svg>

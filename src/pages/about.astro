@@ -1,0 +1,334 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout
+    title="About — Raman Kumar"
+    description="Computer Science student at SFU specializing in NLP, Android development, and distributed systems."
+>
+    <article class="max-w-3xl mx-auto px-4 py-12">
+        <!-- Header -->
+        <header class="mb-12 text-center">
+            <h1 class="text-4xl md:text-5xl font-bold mb-4">About Me</h1>
+            <p class="text-xl text-slate-600 dark:text-slate-400">
+                Computer Science student building intelligent systems and
+                intuitive mobile experiences
+            </p>
+        </header>
+
+        <!-- Main Content -->
+        <div class="space-y-10 md:space-y-12">
+            <!-- Introduction -->
+            <section class="glass panel px-6 py-7 md:px-8 md:py-8">
+                <div class="max-w-2xl">
+                    <h2 class="text-2xl font-bold mb-4">Hi, I'm Raman 👋</h2>
+                    <div
+                        class="space-y-4 text-slate-600 dark:text-slate-400 leading-relaxed"
+                    >
+                        <p>
+                            I'm a Computer Science student at <strong
+                                class="text-slate-900 dark:text-slate-100"
+                                >Simon Fraser University</strong
+                            >, passionate about building software that solves
+                            real problems. My interests span <strong
+                                class="text-slate-900 dark:text-slate-100"
+                                >natural language processing and Android
+                                development</strong
+                            >, along with distributed systems.
+                        </p>
+                        <p>
+                            I love the challenge of taking complex technical
+                            problems and crafting elegant solutions, whether
+                            that's fine-tuning language models with LoRA,
+                            building smooth Android UIs with Jetpack Compose, or
+                            designing fair routing algorithms for group
+                            coordination.
+                        </p>
+                        <p>
+                            When I'm not coding, you'll find me experimenting
+                            with new recipes or getting lost in novels by
+                            Charles Dickens and Enid Blyton.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Current Focus -->
+            <section class="glass panel p-6 md:p-8">
+                <h2 class="text-2xl font-bold mb-6">What I'm Working On</h2>
+                <div class="grid gap-4 md:grid-cols-3">
+                    <div
+                        class="rounded-xl border border-slate-200/60 dark:border-slate-800/60 bg-slate-50/40 dark:bg-slate-900/40 p-4 flex flex-col gap-2"
+                    >
+                        <span class="text-2xl">🎓</span>
+                        <h3
+                            class="font-semibold text-slate-900 dark:text-slate-100"
+                        >
+                            Academic Projects
+                        </h3>
+                        <p class="text-sm text-slate-600 dark:text-slate-400">
+                            LoRA rank benchmarking for CMPT 413, comparing
+                            parameter-efficient fine-tuning for NER and
+                            sentiment classification.
+                        </p>
+                    </div>
+
+                    <div
+                        class="rounded-xl border border-slate-200/60 dark:border-slate-800/60 bg-slate-50/40 dark:bg-slate-900/40 p-4 flex flex-col gap-2"
+                    >
+                        <span class="text-2xl">📱</span>
+                        <h3
+                            class="font-semibold text-slate-900 dark:text-slate-100"
+                        >
+                            MovieFinder
+                        </h3>
+                        <p class="text-sm text-slate-600 dark:text-slate-400">
+                            Android app for swipe-based movie discovery with
+                            personalized recommendations using Jetpack Compose.
+                        </p>
+                    </div>
+
+                    <div
+                        class="rounded-xl border border-slate-200/60 dark:border-slate-800/60 bg-slate-50/40 dark:bg-slate-900/40 p-4 flex flex-col gap-2"
+                    >
+                        <span class="text-2xl">🗺️</span>
+                        <h3
+                            class="font-semibold text-slate-900 dark:text-slate-100"
+                        >
+                            MeetHalf
+                        </h3>
+                        <p class="text-sm text-slate-600 dark:text-slate-400">
+                            Fair meetup planner using Google Maps APIs and a
+                            custom fairness algorithm for multi-modal routing.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Skills -->
+            <section class="glass panel p-6 md:p-8">
+                <h2 class="text-2xl font-bold mb-2">Technical Skills</h2>
+                <p class="text-sm text-slate-500 dark:text-slate-400 mb-6">
+                    A quick snapshot of the tools and technologies I work with
+                    most.
+                </p>
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div>
+                        <h3
+                            class="font-semibold text-slate-900 dark:text-slate-100 mb-3"
+                        >
+                            Languages
+                        </h3>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="skill-pill">Python</span>
+                            <span class="skill-pill">Java</span>
+                            <span class="skill-pill">Kotlin</span>
+                            <span class="skill-pill">JavaScript</span>
+                            <span class="skill-pill">TypeScript</span>
+                            <span class="skill-pill">C/C++</span>
+                            <span class="skill-pill">MATLAB</span>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h3
+                            class="font-semibold text-slate-900 dark:text-slate-100 mb-3"
+                        >
+                            Frameworks & Tools
+                        </h3>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="skill-pill">PyTorch</span>
+                            <span class="skill-pill">Transformers</span>
+                            <span class="skill-pill">Jetpack Compose</span>
+                            <span class="skill-pill">Next.js</span>
+                            <span class="skill-pill">React</span>
+                            <span class="skill-pill">Tailwind CSS</span>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h3
+                            class="font-semibold text-slate-900 dark:text-slate-100 mb-3"
+                        >
+                            Data & ML
+                        </h3>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="skill-pill">PySpark</span>
+                            <span class="skill-pill">pandas</span>
+                            <span class="skill-pill">NumPy</span>
+                            <span class="skill-pill">scikit-learn</span>
+                            <span class="skill-pill">LoRA</span>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h3
+                            class="font-semibold text-slate-900 dark:text-slate-100 mb-3"
+                        >
+                            Other
+                        </h3>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="skill-pill">Git</span>
+                            <span class="skill-pill">Linux</span>
+                            <span class="skill-pill">REST APIs</span>
+                            <span class="skill-pill">LaTeX</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Education -->
+            <section class="glass panel p-6 md:p-8">
+                <h2 class="text-2xl font-bold mb-6">Education</h2>
+
+                <div class="space-y-6">
+                    <!-- SFU -->
+                    <div
+                        class="border-l-2 border-blue-500 dark:border-blue-400 pl-4"
+                    >
+                        <h3
+                            class="font-semibold text-slate-900 dark:text-slate-100"
+                        >
+                            Simon Fraser University
+                        </h3>
+                        <p class="text-slate-600 dark:text-slate-400">
+                            Bachelor of Science, Computing Science
+                        </p>
+                        <p
+                            class="text-sm text-slate-500 dark:text-slate-500 mt-1"
+                        >
+                            September 2023 – December 2026 • Burnaby, BC
+                        </p>
+                        <p
+                            class="text-sm text-slate-600 dark:text-slate-400 mt-2"
+                        >
+                            <strong>Relevant Coursework:</strong> Natural Language
+                            Processing (CMPT 413), Mobile Applications (CMPT 362),
+                            Computer Networks (CMPT 371), Data Structures & Algorithms
+                        </p>
+                    </div>
+
+                    <!-- Langara -->
+                    <div
+                        class="border-l-2 border-slate-300 dark:border-slate-600 pl-4"
+                    >
+                        <h3
+                            class="font-semibold text-slate-900 dark:text-slate-100"
+                        >
+                            Langara College
+                        </h3>
+                        <p class="text-slate-600 dark:text-slate-400">
+                            Associate Degree, Computer Science
+                        </p>
+                        <p
+                            class="text-sm text-slate-500 dark:text-slate-500 mt-1"
+                        >
+                            May 2022 – December 2023 • Vancouver, BC
+                        </p>
+                        <p
+                            class="text-sm text-slate-600 dark:text-slate-400 mt-2"
+                        >
+                            <strong>GPA:</strong> 3.87/4.33 • Dean's Honor Roll,
+                            Summer 2023
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Experience -->
+            <section class="glass panel p-6 md:p-8">
+                <h2 class="text-2xl font-bold mb-6">Experience</h2>
+                <div
+                    class="border-l-2 border-blue-500 dark:border-blue-400 pl-4"
+                >
+                    <div class="flex justify-between items-start mb-2">
+                        <div>
+                            <h3
+                                class="font-semibold text-slate-900 dark:text-slate-100"
+                            >
+                                Banking Advisor
+                            </h3>
+                            <p class="text-slate-600 dark:text-slate-400">
+                                Royal Bank of Canada
+                            </p>
+                        </div>
+                        <span
+                            class="text-sm text-slate-500 dark:text-slate-400 whitespace-nowrap ml-4"
+                            >Nov 2018 – Oct 2021</span
+                        >
+                    </div>
+                    <p class="text-sm text-slate-500 dark:text-slate-500 mb-3">
+                        Vancouver, BC
+                    </p>
+                    <ul
+                        class="text-sm text-slate-600 dark:text-slate-400 space-y-2"
+                    >
+                        <li class="flex gap-2">
+                            <span class="text-blue-500 dark:text-blue-400"
+                                >▸</span
+                            >
+                            <span
+                                >Assessed client needs and delivered tailored
+                                banking solutions, maximizing cost-effectiveness
+                                and satisfaction</span
+                            >
+                        </li>
+                        <li class="flex gap-2">
+                            <span class="text-blue-500 dark:text-blue-400"
+                                >▸</span
+                            >
+                            <span
+                                >Surpassed sales targets by 20% through
+                                strategic lending, risk analysis, and targeted
+                                portfolio diversification</span
+                            >
+                        </li>
+                        <li class="flex gap-2">
+                            <span class="text-blue-500 dark:text-blue-400"
+                                >▸</span
+                            >
+                            <span
+                                >Mentored new advisors, accelerating onboarding
+                                and strengthening client service skills</span
+                            >
+                        </li>
+                        <li class="flex gap-2">
+                            <span class="text-blue-500 dark:text-blue-400"
+                                >▸</span
+                            >
+                            <span
+                                >Led BC Children's Hospital (2020-21) and
+                                Employee Giving (2020) campaigns via strategic
+                                planning and promotions</span
+                            >
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Call to Action -->
+            <section class="glass panel p-6 md:p-8 text-center">
+                <h2 class="text-2xl font-bold mb-4">Let's Connect</h2>
+                <p class="text-slate-600 dark:text-slate-400 mb-6">
+                    I'm always interested in hearing about new opportunities,
+                    collaborations, or just chatting about tech!
+                </p>
+                <div class="flex flex-wrap gap-3 justify-center">
+                    <a
+                        href="/contact"
+                        class="px-6 py-3 rounded-lg bg-gradient-to-r from-blue-600 to-violet-600 text-white font-medium hover:shadow-lg transition-all"
+                    >
+                        Get in Touch
+                    </a>
+                    <a
+                        href="/resume.pdf"
+                        target="_blank"
+                        class="px-6 py-3 rounded-lg border border-slate-300 dark:border-slate-600 font-medium hover:bg-slate-100 dark:hover:bg-slate-700 transition-all"
+                    >
+                        View Resume
+                    </a>
+                </div>
+            </section>
+        </div>
+    </article>
+</BaseLayout>
