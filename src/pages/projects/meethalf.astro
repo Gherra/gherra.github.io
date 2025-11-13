@@ -18,7 +18,8 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
         class="relative mb-12 -mx-4 md:mx-0 overflow-hidden rounded-2xl border border-slate-200/60 dark:border-slate-700/60"
         >
         <!-- Base soft gradient (visible in light & dark) -->
-        <div class="bg-gradient-to-br from-blue-50 to-cyan-50 dark:from-blue-950 dark:to-cyan-950">
+        <div class="relative bg-gradient-to-br from-blue-100 to-cyan-100 dark:from-blue-950 dark:to-cyan-950">
+        
             <div class="px-4 md:px-8 py-10">
             <div class="flex items-center gap-3 mb-4">
                 <span class="px-3 py-1 rounded-full text-sm font-medium bg-gradient-to-r from-blue-600 to-cyan-600 text-white shadow-sm">
@@ -70,6 +71,28 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
                 <div class="mt-1 text-xl font-semibold">WIP</div>
             </div>
         </section>
+
+      <section class="mt-6 grid grid-cols-1 md:grid-cols-2 gap-4">
+    <div class="glass panel overflow-hidden"><img src="/images/meethalf-1.png" alt="Participants & modes" class="w-full h-auto"></div>
+    <div class="glass panel overflow-hidden"><img src="/images/meethalf-2.png" alt="Map with venue options" class="w-full h-auto"></div>
+  </section>
+
+  </section>
+  <p class="mt-3 text-sm text-slate-500 dark:text-slate-400 text-center">
+    Left: Participant setup with multi-modal travel options • Right: Ranked meeting spots with per-person travel times
+  </p>
+
+
+
+        <!-- At a Glance -->
+  <section class="mb-8 glass panel p-6">
+    <h2 class="text-xl font-bold mb-4">At a Glance</h2>
+    <ul class="space-y-2 text-slate-600 dark:text-slate-300">
+      <li><strong class="text-slate-900 dark:text-slate-100">Problem:</strong> Fairly choosing meetup spots for 2–8+ people with different travel modes.</li>
+      <li><strong class="text-slate-900 dark:text-slate-100">Solution:</strong> Route-aware algorithm that minimizes group average travel time using Google Maps APIs.</li>
+      <li><strong class="text-slate-900 dark:text-slate-100">My role:</strong> End-to-end: idea, algorithm design, Next.js frontend, Maps integration.</li>
+    </ul>
+  </section>
 
     
 
@@ -129,11 +152,10 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
         <li><strong>Highlight fair options:</strong> Badge venues where spread ≤ 5 minutes (everyone arrives within a similar timeframe)</li>
       </ol>
 
-      <div class="not-prose glass panel p-4 my-6">
-        <p class="text-sm text-slate-600 dark:text-slate-300">
-            <strong>Why average time?</strong> It balances everyone’s convenience—nobody gets stuck with the 40-minute outlier.
-        </p>
-    </div>
+     <p class="italic text-slate-600 dark:text-slate-300 my-4">
+    <strong>Why average time?</strong> It balances everyone’s convenience—nobody gets stuck with the 40-minute outlier.
+</p>
+
 
 
       <h2>Technical Stack</h2>
@@ -146,14 +168,49 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
       </ul>
 
       <h2>Key Features</h2>
-      <ul>
-        <li><strong>Multi-person support:</strong> 2-8+ people (scales to larger groups)</li>
-        <li><strong>Per-person travel modes:</strong> Each participant chooses driving, transit, or walking</li>
-        <li><strong>Real-time travel times:</strong> Uses Google Directions API for accurate estimates</li>
-        <li><strong>Smart venue suggestions:</strong> Top 5 places sorted by fairness + ratings</li>
-        <li><strong>Interactive map:</strong> Visual display of participants and suggested venues</li>
-        <li><strong>Venue details:</strong> Ratings, price levels, and open hours from Google Places</li>
-      </ul>
+      <div class="not-prose mt-6 grid gap-4 md:grid-cols-2">
+        <div class="glass panel p-5">
+          <h3 class="text-base font-semibold mb-2 text-slate-900 dark:text-slate-100">Multi-person support</h3>
+          <p class="text-sm text-slate-600 dark:text-slate-300">
+            Designed for 2–8+ people; the UI and algorithm both scale to larger groups.
+          </p>
+        </div>
+
+        <div class="glass panel p-5">
+          <h3 class="text-base font-semibold mb-2 text-slate-900 dark:text-slate-100">Per-person travel modes</h3>
+          <p class="text-sm text-slate-600 dark:text-slate-300">
+            Each participant chooses driving, transit, or walking; routes are mixed per venue.
+          </p>
+        </div>
+
+        <div class="glass panel p-5">
+          <h3 class="text-base font-semibold mb-2 text-slate-900 dark:text-slate-100">Real-time travel times</h3>
+          <p class="text-sm text-slate-600 dark:text-slate-300">
+            Uses Google Directions API for accurate estimates based on current traffic.
+          </p>
+        </div>
+
+        <div class="glass panel p-5">
+          <h3 class="text-base font-semibold mb-2 text-slate-900 dark:text-slate-100">Smart venue suggestions</h3>
+          <p class="text-sm text-slate-600 dark:text-slate-300">
+            Top 5 places sorted by fairness + ratings from Google Places.
+          </p>
+        </div>
+
+        <div class="glass panel p-5">
+          <h3 class="text-base font-semibold mb-2 text-slate-900 dark:text-slate-100">Interactive map</h3>
+          <p class="text-sm text-slate-600 dark:text-slate-300">
+            Visual display of participants and suggested venues with color-coded markers.
+          </p>
+        </div>
+
+        <div class="glass panel p-5">
+          <h3 class="text-base font-semibold mb-2 text-slate-900 dark:text-slate-100">Venue details</h3>
+          <p class="text-sm text-slate-600 dark:text-slate-300">
+            Ratings, price levels, and open hours from Google Places API.
+          </p>
+        </div>
+      </div>
 
       <h2>Performance Considerations</h2>
       <p>
@@ -181,10 +238,13 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 
     </div>
 
-    <nav class="mt-10 flex items-center justify-between text-sm">
-  <a href="/projects/moviefinder" class="text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400">← MovieFinder</a>
-  <a href="/" class="text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400">Back to Home</a>
+<nav class="mt-10 flex items-center justify-between text-sm text-slate-500">
+  <a href="/projects/moviefinder" class="inline-flex items-center gap-2 hover:text-slate-700 dark:hover:text-slate-300">
+    <span aria-hidden>←</span> Previous: MovieFinder
+  </a>
+  <a href="/" class="hover:text-slate-700 dark:hover:text-slate-300">Back to Home</a>
 </nav>
+
 
   </article>
 </BaseLayout>
