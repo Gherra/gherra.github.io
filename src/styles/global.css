@@ -2,54 +2,63 @@
 @custom-variant dark (&:where(.dark, .dark *));
 @plugin "@tailwindcss/typography";
 
-
-.glass {
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    background: color-mix(in oklab, white 60%, transparent);
-    border: 1px solid color-mix(in oklab, #cbd5e1 40%, transparent);
-    /* slate-300 */
+/* Remove glass morphism - use solid backgrounds with borders */
+.card {
+    background: white;
+    border: 2px solid rgb(226 232 240);
+    /* slate-200 */
+    transition: border-color 0.2s;
 }
 
-.dark .glass {
-    background: color-mix(in oklab, rgb(2 6 23) 60%, transparent);
+.dark .card {
+    background: rgb(2 6 23);
     /* slate-950 */
-    border-color: color-mix(in oklab, rgb(71 85 105) 40%, transparent);
+    border-color: rgb(30 41 59);
+    /* slate-800 */
+}
+
+.card:hover {
+    border-color: rgb(148 163 184);
+    /* slate-400 */
+}
+
+.dark .card:hover {
+    border-color: rgb(71 85 105);
     /* slate-600 */
 }
 
-.panel {
-    border-radius: 1rem;
-    /* rounded-2xl vibe */
-    box-shadow:
-        0 1px 0 0 rgba(0, 0, 0, .04),
-        0 8px 30px rgba(2, 6, 23, .06);
+/* Category-specific accents (no gradients) */
+.category-android {
+    border-left: 4px solid rgb(34 197 94);
+    /* green-500 */
 }
 
-.dark .panel {
-    box-shadow:
-        0 1px 0 0 rgba(0, 0, 0, .12),
-        0 8px 30px rgba(0, 0, 0, .12);
+.category-web {
+    border-left: 4px solid rgb(59 130 246);
+    /* blue-500 */
 }
 
+.category-ml {
+    border-left: 4px solid rgb(168 85 247);
+    /* purple-500 */
+}
 
-
+/* Typography improvements */
 .prose ul>li {
     position: relative;
     padding-left: 0.5rem;
 }
 
 .prose ul>li::marker {
-    content: '▸';
-    color: rgb(34 211 238);
-    /* cyan-400 */
-    font-weight: bold;
-    font-size: 1.1em;
+    content: '→';
+    color: rgb(100 116 139);
+    /* slate-500 */
+    font-weight: 600;
 }
 
 .dark .prose ul>li::marker {
-    color: rgb(6 182 212);
-    /* cyan-500 */
+    color: rgb(148 163 184);
+    /* slate-400 */
 }
 
 .prose ol>li {
@@ -57,19 +66,46 @@
 }
 
 .prose ol>li::marker {
-    color: rgb(34 211 238);
+    color: rgb(100 116 139);
     font-weight: 700;
 }
 
 .dark .prose ol>li::marker {
-    color: rgb(6 182 212);
+    color: rgb(148 163 184);
 }
-
 
 .prose li+li {
     margin-top: 0.75rem;
 }
 
-.skill-pill {
-    @apply px-3 py-1 rounded-full text-sm bg-slate-100/70 dark:bg-slate-800/70 text-slate-800 dark:text-slate-200 border border-slate-200/60 dark:border-slate-700/60;
+/* Tech stack pills - simpler design */
+.tech-pill {
+    @apply px-3 py-1.5 text-sm font-mono bg-slate-100 dark:bg-slate-900 text-slate-700 dark:text-slate-300 border-2 border-slate-200 dark:border-slate-800;
+}
+
+/* Stats card styling */
+.stat-card {
+    @apply border-2 border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-950 p-4;
+}
+
+/* Project header styling - no gradient blobs */
+.project-header {
+    @apply bg-slate-50 dark:bg-slate-900 border-2 border-slate-200 dark:border-slate-800;
+}
+
+/* Animation utilities */
+@keyframes pulse-subtle {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.6;
+    }
+}
+
+.animate-pulse-subtle {
+    animation: pulse-subtle 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 }
