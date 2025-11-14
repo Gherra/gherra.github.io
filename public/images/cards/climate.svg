@@ -1,0 +1,139 @@
+<svg width="800" height="600" viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Gradient backgrounds -->
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f97316;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#ef4444;stop-opacity:1" />
+    </linearGradient>
+    
+    <linearGradient id="chartGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#fbbf24;stop-opacity:0.8" />
+      <stop offset="100%" style="stop-color:#dc2626;stop-opacity:0.8" />
+    </linearGradient>
+    
+    <!-- Glow filter for data points -->
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="800" height="600" fill="url(#bgGradient)"/>
+  
+  <!-- Decorative circles (representing global data points) -->
+  <circle cx="100" cy="80" r="40" fill="#fbbf24" opacity="0.15"/>
+  <circle cx="700" cy="520" r="60" fill="#ef4444" opacity="0.15"/>
+  <circle cx="650" cy="100" r="50" fill="#fbbf24" opacity="0.12"/>
+  <circle cx="150" cy="500" r="45" fill="#dc2626" opacity="0.12"/>
+  
+  <!-- Graph container background -->
+  <rect x="100" y="120" width="600" height="360" rx="16" fill="white" opacity="0.1"/>
+  
+  <!-- Grid lines -->
+  <g stroke="white" stroke-width="1" opacity="0.2">
+    <line x1="100" y1="200" x2="700" y2="200"/>
+    <line x1="100" y1="280" x2="700" y2="280"/>
+    <line x1="100" y1="360" x2="700" y2="360"/>
+    <line x1="100" y1="440" x2="700" y2="440"/>
+    
+    <line x1="200" y1="120" x2="200" y2="480"/>
+    <line x1="325" y1="120" x2="325" y2="480"/>
+    <line x1="450" y1="120" x2="450" y2="480"/>
+    <line x1="575" y1="120" x2="575" y2="480"/>
+  </g>
+  
+  <!-- Temperature trend line (showing warming) -->
+  <path d="M 100 420 Q 250 410, 400 360 Q 550 310, 700 240" 
+        stroke="#fbbf24" 
+        stroke-width="4" 
+        fill="none" 
+        stroke-linecap="round"
+        filter="url(#glow)"/>
+  
+  <!-- Fill area under curve -->
+  <path d="M 100 420 Q 250 410, 400 360 Q 550 310, 700 240 L 700 480 L 100 480 Z" 
+        fill="url(#chartGradient)" 
+        opacity="0.3"/>
+  
+  <!-- Data points (cities) -->
+  <circle cx="150" cy="415" r="6" fill="white" opacity="0.9" filter="url(#glow)"/>
+  <circle cx="250" cy="400" r="6" fill="white" opacity="0.9" filter="url(#glow)"/>
+  <circle cx="350" cy="370" r="6" fill="white" opacity="0.9" filter="url(#glow)"/>
+  <circle cx="450" cy="330" r="6" fill="white" opacity="0.9" filter="url(#glow)"/>
+  <circle cx="550" cy="280" r="6" fill="white" opacity="0.9" filter="url(#glow)"/>
+  <circle cx="650" cy="250" r="6" fill="white" opacity="0.9" filter="url(#glow)"/>
+  
+  <!-- Scattered data points (representing 92 cities) -->
+  <circle cx="180" cy="430" r="3" fill="white" opacity="0.6"/>
+  <circle cx="220" cy="425" r="3" fill="white" opacity="0.6"/>
+  <circle cx="280" cy="405" r="3" fill="white" opacity="0.6"/>
+  <circle cx="320" cy="390" r="3" fill="white" opacity="0.6"/>
+  <circle cx="380" cy="375" r="3" fill="white" opacity="0.6"/>
+  <circle cx="420" cy="350" r="3" fill="white" opacity="0.6"/>
+  <circle cx="480" cy="320" r="3" fill="white" opacity="0.6"/>
+  <circle cx="520" cy="295" r="3" fill="white" opacity="0.6"/>
+  <circle cx="580" cy="270" r="3" fill="white" opacity="0.6"/>
+  <circle cx="620" cy="255" r="3" fill="white" opacity="0.6"/>
+  <circle cx="680" cy="245" r="3" fill="white" opacity="0.6"/>
+  
+  <!-- More scattered points for variance -->
+  <circle cx="170" cy="410" r="3" fill="white" opacity="0.5"/>
+  <circle cx="260" cy="415" r="3" fill="white" opacity="0.5"/>
+  <circle cx="340" cy="385" r="3" fill="white" opacity="0.5"/>
+  <circle cx="440" cy="345" r="3" fill="white" opacity="0.5"/>
+  <circle cx="540" cy="305" r="3" fill="white" opacity="0.5"/>
+  <circle cx="640" cy="260" r="3" fill="white" opacity="0.5"/>
+  
+  <!-- Globe icon (top left) -->
+  <g transform="translate(120, 160)">
+    <circle cx="0" cy="0" r="24" fill="white" opacity="0.15"/>
+    <circle cx="0" cy="0" r="20" stroke="white" stroke-width="2" fill="none" opacity="0.8"/>
+    <!-- Latitude lines -->
+    <ellipse cx="0" cy="0" rx="20" ry="8" stroke="white" stroke-width="1.5" fill="none" opacity="0.6"/>
+    <ellipse cx="0" cy="0" rx="20" ry="14" stroke="white" stroke-width="1" fill="none" opacity="0.4"/>
+    <!-- Longitude line -->
+    <path d="M 0 -20 Q 10 0, 0 20 Q -10 0, 0 -20" stroke="white" stroke-width="1.5" fill="none" opacity="0.6"/>
+  </g>
+  
+  <!-- Temperature icon (top right) -->
+  <g transform="translate(660, 160)">
+    <rect x="-8" y="-20" width="16" height="30" rx="8" fill="white" opacity="0.2"/>
+    <rect x="-6" y="-18" width="12" height="28" rx="6" fill="none" stroke="white" stroke-width="2" opacity="0.8"/>
+    <circle cx="0" cy="16" r="10" fill="white" opacity="0.8"/>
+    <rect x="-3" y="-12" width="6" height="20" fill="#fbbf24" opacity="0.9"/>
+  </g>
+  
+  <!-- Statistical icon (bottom left) -->
+  <g transform="translate(140, 510)" opacity="0.7">
+    <rect x="-3" y="-12" width="6" height="12" fill="white" rx="1"/>
+    <rect x="8" y="-20" width="6" height="20" fill="white" rx="1"/>
+    <rect x="19" y="-8" width="6" height="8" fill="white" rx="1"/>
+  </g>
+  
+  <!-- PySpark icon (bottom right) - simplified spark -->
+  <g transform="translate(660, 510)" opacity="0.7">
+    <path d="M 0 -15 L -8 5 L 3 0 L 0 15 L 8 -5 L -3 0 Z" fill="white"/>
+  </g>
+  
+  <!-- Title text -->
+  <text x="400" y="70" font-family="Arial, sans-serif" font-size="42" font-weight="bold" fill="white" text-anchor="middle" opacity="0.95">
+    Climate Data
+  </text>
+  
+  <!-- Subtitle -->
+  <text x="400" y="105" font-family="Arial, sans-serif" font-size="18" fill="white" text-anchor="middle" opacity="0.8">
+    92 Cities • 25 Years • 0.29°C/decade
+  </text>
+  
+  <!-- Bottom label -->
+  <text x="100" y="515" font-family="Arial, sans-serif" font-size="14" fill="white" opacity="0.7">
+    2000
+  </text>
+  <text x="680" y="515" font-family="Arial, sans-serif" font-size="14" fill="white" opacity="0.7" text-anchor="end">
+    2024
+  </text>
+</svg>
