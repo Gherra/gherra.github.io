@@ -2,7 +2,7 @@
 interface Props {
   title: string;
   description: string;
-  category: 'android' | 'ml' | 'web';
+  category: "android" | "ml" | "web";
   tags: string[];
   image?: string;
   repoUrl?: string;
@@ -11,103 +11,141 @@ interface Props {
   slug: string;
 }
 
-const { title, description, category, tags, image, repoUrl, apkUrl, liveUrl, slug } = Astro.props;
+const {
+  title,
+  description,
+  category,
+  tags,
+  image,
+  repoUrl,
+  apkUrl,
+  liveUrl,
+  slug,
+} = Astro.props;
 
 const categoryColors = {
-  android: 'from-green-500 to-emerald-600',
-  ml: 'from-purple-500 to-pink-600',
-  web: 'from-blue-500 to-cyan-600',
+  android: "from-green-500 to-emerald-600",
+  ml: "from-purple-500 to-pink-600",
+  web: "from-blue-500 to-cyan-600",
 };
 
 const categoryLabels = {
-  android: 'Android',
-  ml: 'Computer Vision',
-  web: 'Web',
+  android: "Android",
+  ml: "Computer Vision",
+  web: "Web",
+};
+
+const categoryHoverColors = {
+  android: "group-hover:text-green-600 dark:group-hover:text-green-400",
+  ml: "group-hover:text-purple-600 dark:group-hover:text-purple-400",
+  web: "group-hover:text-blue-600 dark:group-hover:text-blue-400",
 };
 ---
 
-<article class="group relative backdrop-blur-sm bg-white/70 dark:bg-slate-800/70 rounded-2xl border border-slate-200 dark:border-slate-700 overflow-hidden hover:shadow-xl hover:scale-[1.02] transition-all duration-300">
-  
-  <!-- Image Placeholder -->
-  {image ? (
-    <div class="aspect-video w-full overflow-hidden bg-gradient-to-br {categoryColors[category]}">
-      <img 
-        src={image} 
-        alt={title}
-        class="w-full h-full object-cover opacity-90 group-hover:opacity-100 group-hover:scale-105 transition-all duration-300"
-      />
-    </div>
-  ) : (
-    <div class="aspect-video w-full bg-gradient-to-br {categoryColors[category]} flex items-center justify-center">
-      <span class="text-white text-5xl font-bold opacity-20">{title.charAt(0)}</span>
-    </div>
-  )}
+<article
+  class="group relative backdrop-blur-sm bg-white/70 dark:bg-slate-800/70 rounded-2xl border border-slate-200 dark:border-slate-700 overflow-hidden hover:shadow-xl hover:scale-[1.02] transition-all duration-300 flex flex-col h-full"
+>
+  <!-- Make entire card clickable EXCEPT buttons -->
+  <a href={`/projects/${slug}`} class="block flex-grow">
+    <!-- Image Placeholder -->
+    {
+      image ? (
+        <div class="aspect-video w-full overflow-hidden bg-gradient-to-br {categoryColors[category]}">
+          <img
+            src={image}
+            alt={title}
+            class="w-full h-full object-cover opacity-90 group-hover:opacity-100 group-hover:scale-105 transition-all duration-300"
+          />
+        </div>
+      ) : (
+        <div class="aspect-video w-full bg-gradient-to-br {categoryColors[category]} flex items-center justify-center">
+          <span class="text-white text-5xl font-bold opacity-20">
+            {title.charAt(0)}
+          </span>
+        </div>
+      )
+    }
 
-  <!-- Content -->
-  <div class="p-6 space-y-4">
-    
-    <!-- Category Badge -->
-    <div class="flex items-center gap-2">
-      <span class="px-3 py-1 rounded-full text-xs font-medium bg-gradient-to-r {categoryColors[category]} text-white">
-        {categoryLabels[category]}
-      </span>
-    </div>
-
-    <!-- Title & Description -->
-    <div>
-      <h3 class="text-xl font-bold mb-2 text-slate-900 dark:text-slate-100">
-        <a href={`/projects/${slug}`} class="hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
-            {title}
-        </a>
-      </h3>
-      <p class="text-slate-600 dark:text-slate-400 text-sm">
-        {description}
-      </p>
-    </div>
-
-    <!-- Tags -->
-    <div class="flex flex-wrap gap-2">
-      {tags.slice(0, 4).map(tag => (
-        <span class="px-2 py-1 text-xs rounded-md bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-300">
-          {tag}
+    <!-- Content -->
+    <div class="p-6 space-y-4 flex flex-col">
+      <!-- Category Badge -->
+      <div class="flex items-center gap-2">
+        <span
+          class="px-3 py-1 rounded-full text-xs font-medium bg-gradient-to-r {categoryColors[category]} text-white"
+        >
+          {categoryLabels[category]}
         </span>
-      ))}
-    </div>
+      </div>
 
-    <!-- Action Buttons -->
-    <div class="flex flex-wrap gap-2 pt-2">
-      {repoUrl && (
-        <a 
+      <!-- Title & Description -->
+      <div class="flex-grow">
+        <h3
+          class="text-xl font-bold mb-2 text-slate-900 dark:text-slate-100 {categoryHoverColors[category]} transition-colors"
+        >
+          {title}
+        </h3>
+        <p class="text-slate-600 dark:text-slate-400 text-sm line-clamp-3">
+          {description}
+        </p>
+      </div>
+
+      <!-- Tags -->
+      <div class="flex flex-wrap gap-2">
+        {
+          tags
+            .slice(0, 4)
+            .map((tag) => (
+              <span class="px-2 py-1 text-xs rounded-md bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-300">
+                {tag}
+              </span>
+            ))
+        }
+      </div>
+    </div>
+  </a>
+
+  <!-- Action Buttons - OUTSIDE clickable area -->
+  <div class="px-6 pb-6 flex flex-wrap gap-2">
+    {
+      repoUrl && (
+        <a
           href={repoUrl}
           target="_blank"
           rel="noopener noreferrer"
+          onclick="event.stopPropagation()"
           class="px-4 py-2 rounded-lg bg-gradient-to-r from-blue-600 to-violet-600 text-white text-sm font-medium hover:shadow-lg transition-all"
         >
           View Code
         </a>
-      )}
-      
-      {apkUrl && (
-        <a 
+      )
+    }
+
+    {
+      apkUrl && (
+        <a
           href={apkUrl}
           target="_blank"
           rel="noopener noreferrer"
+          onclick="event.stopPropagation()"
           class="px-4 py-2 rounded-lg border border-slate-300 dark:border-slate-600 text-slate-700 dark:text-slate-300 text-sm font-medium hover:bg-slate-100 dark:hover:bg-slate-700 transition-all"
         >
           Download APK
         </a>
-      )}
-      
-      {liveUrl && (
-        <a 
+      )
+    }
+
+    {
+      liveUrl && (
+        <a
           href={liveUrl}
           target="_blank"
           rel="noopener noreferrer"
+          onclick="event.stopPropagation()"
           class="px-4 py-2 rounded-lg border border-slate-300 dark:border-slate-600 text-slate-700 dark:text-slate-300 text-sm font-medium hover:bg-slate-100 dark:hover:bg-slate-700 transition-all"
         >
           Live Demo
         </a>
-      )}
-    </div>
+      )
+    }
   </div>
 </article>
