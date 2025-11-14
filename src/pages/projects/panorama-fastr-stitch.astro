@@ -31,21 +31,22 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
     <header
       class="relative mb-12 -mx-4 md:mx-0 overflow-hidden rounded-2xl border border-slate-200/60 dark:border-slate-700/60"
     >
-      <!-- Base soft gradient (visible in light & dark) -->
+      <!-- Base soft gradient (subtler, esp. in dark) -->
       <div
-        class="relative bg-gradient-to-br from-purple-100 to-pink-100 dark:from-purple-950 dark:to-pink-950"
+        class="relative bg-gradient-to-br from-purple-50 to-rose-50 dark:from-slate-950 dark:to-purple-950"
       >
         <div class="px-4 md:px-8 py-10">
           <div class="flex items-center gap-3 mb-4">
             <span
-              class="px-3 py-1 rounded-full text-sm font-medium bg-gradient-to-r from-purple-600 to-pink-600 text-white shadow-sm"
+              class="px-3 py-1 rounded-full text-sm font-medium bg-gradient-to-r from-purple-600 to-pink-500 text-white shadow-sm"
             >
               Computer Vision
             </span>
-            <span class="text-slate-600/80 dark:text-slate-300/80"
-              >March 2024</span
-            >
+            <span class="text-slate-600/80 dark:text-slate-300/80">
+              March 2024
+            </span>
           </div>
+
           <h1 class="text-4xl md:text-5xl font-bold tracking-tight">
             <span
               class="bg-clip-text text-transparent bg-gradient-to-r from-slate-900 to-slate-700 dark:from-white dark:to-slate-300"
@@ -53,6 +54,7 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
               Panorama FastR-Stitch
             </span>
           </h1>
+
           <p
             class="mt-3 text-lg text-slate-700/90 dark:text-slate-300/90 max-w-3xl"
           >
@@ -60,6 +62,7 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
             corner detection, SURF descriptors, and RANSAC homography
             estimation.
           </p>
+
           <div class="flex flex-wrap gap-3 mt-6">
             <a
               href="https://github.com/Gherra/Panorama-FastR-Stitch"
@@ -73,18 +76,18 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
         </div>
       </div>
 
-      <!-- Decorative radial blobs for depth -->
+      <!-- Decorative radial blobs for depth (toned down) -->
       <div
         class="pointer-events-none absolute inset-0 mix-blend-multiply opacity-60"
       >
         <div
           class="absolute -top-10 -left-16 w-64 h-64 rounded-full blur-3xl"
-          style="background:radial-gradient(60% 60% at 50% 50%, rgba(168,85,247,.35), transparent)"
+          style="background:radial-gradient(60% 60% at 50% 50%, rgba(168,85,247,.22), transparent)"
         >
         </div>
         <div
           class="absolute -bottom-16 -right-10 w-72 h-72 rounded-full blur-3xl"
-          style="background:radial-gradient(60% 60% at 50% 50%, rgba(236,72,153,.35), transparent)"
+          style="background:radial-gradient(60% 60% at 50% 50%, rgba(236,72,153,.22), transparent)"
         >
         </div>
       </div>
@@ -481,16 +484,22 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
     </div>
 
     <!-- Navigation -->
-    <nav class="mt-10 flex items-center justify-between text-sm text-slate-500">
+    <nav class="mt-10 grid grid-cols-3 text-sm text-slate-500">
       <a
         href="/projects/meethalf"
         class="inline-flex items-center gap-2 hover:text-slate-700 dark:hover:text-slate-300"
       >
         <span aria-hidden>←</span> Previous: MeetHalf
       </a>
-      <a href="/" class="hover:text-slate-700 dark:hover:text-slate-300"
-        >Back to Home</a
+
+      <a
+        href="/"
+        class="mx-auto hover:text-slate-700 dark:hover:text-slate-300"
       >
+        Back to Home
+      </a>
+
+      <span></span>
     </nav>
   </article>
 </BaseLayout>
