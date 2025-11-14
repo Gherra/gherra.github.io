@@ -28,24 +28,27 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
         </a>
 
         <!-- Header -->
+        <!-- Header -->
         <header
             class="relative mb-12 -mx-4 md:mx-0 overflow-hidden rounded-2xl border border-slate-200/60 dark:border-slate-700/60"
         >
             <!-- Base soft gradient -->
             <div
-                class="relative bg-gradient-to-br from-orange-100 to-red-100 dark:from-orange-950 dark:to-red-950"
+                class="relative bg-gradient-to-br from-amber-50 to-rose-100 dark:from-amber-950 dark:to-rose-900"
             >
                 <div class="px-4 md:px-8 py-10">
                     <div class="flex items-center gap-3 mb-4">
                         <span
-                            class="px-3 py-1 rounded-full text-sm font-medium bg-gradient-to-r from-orange-600 to-red-600 text-white shadow-sm"
+                            class="px-3 py-1 rounded-full text-sm font-medium bg-gradient-to-r from-amber-600 to-rose-600 text-white shadow-sm"
                         >
                             Data Science
                         </span>
-                        <span class="text-slate-600/80 dark:text-slate-300/80"
-                            >January 2024</span
-                        >
+
+                        <span class="text-slate-600/80 dark:text-slate-300/80">
+                            January 2024 • Course Project
+                        </span>
                     </div>
+
                     <h1 class="text-4xl md:text-5xl font-bold tracking-tight">
                         <span
                             class="bg-clip-text text-transparent bg-gradient-to-r from-slate-900 to-slate-700 dark:from-white dark:to-slate-300"
@@ -53,20 +56,22 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
                             Global Temperature Trends Analysis
                         </span>
                     </h1>
+
                     <p
                         class="mt-3 text-lg text-slate-700/90 dark:text-slate-300/90 max-w-3xl"
                     >
                         Analyzing 25 years of global city temperature data
-                        (2000-2024) across 92 cities to detect climate change
+                        (2000–2024) across 90+ cities to detect climate change
                         patterns using PySpark, robust regression, and seasonal
                         balance controls.
                     </p>
+
                     <div class="flex flex-wrap gap-3 mt-6">
                         <a
                             href="https://github.com/Gherra/global-temperature-trends-analysis"
                             target="_blank"
                             rel="noopener noreferrer"
-                            class="px-5 py-2 rounded-xl font-medium text-white bg-gradient-to-r from-orange-600 to-red-600 hover:scale-[1.02] active:scale-[.99] transition"
+                            class="px-5 py-2 rounded-xl font-medium text-white bg-gradient-to-r from-amber-600 to-rose-600 hover:scale-[1.02] active:scale-[.99] transition"
                         >
                             View Code
                         </a>
@@ -74,18 +79,18 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
                 </div>
             </div>
 
-            <!-- Decorative radial blobs -->
+            <!-- Decorative radial blobs (muted) -->
             <div
-                class="pointer-events-none absolute inset-0 mix-blend-multiply opacity-60"
+                class="pointer-events-none absolute inset-0 mix-blend-multiply opacity-50"
             >
                 <div
                     class="absolute -top-10 -left-16 w-64 h-64 rounded-full blur-3xl"
-                    style="background:radial-gradient(60% 60% at 50% 50%, rgba(251,146,60,.35), transparent)"
+                    style="background:radial-gradient(60% 60% at 50% 50%, rgba(251,191,36,0.25), transparent)"
                 >
                 </div>
                 <div
                     class="absolute -bottom-16 -right-10 w-72 h-72 rounded-full blur-3xl"
-                    style="background:radial-gradient(60% 60% at 50% 50%, rgba(239,68,68,.35), transparent)"
+                    style="background:radial-gradient(60% 60% at 50% 50%, rgba(244,114,182,0.25), transparent)"
                 >
                 </div>
             </div>
@@ -182,20 +187,6 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
             </div>
         </section>
 
-        <p
-            class="mb-12 text-sm text-center text-slate-500 dark:text-slate-400 max-w-3xl mx-auto"
-        >
-            <strong class="text-slate-600 dark:text-slate-300">Figure 1:</strong
-            > Trend vs latitude, distribution with KDE, trend quality, and global
-            map.
-            <strong class="text-slate-600 dark:text-slate-300">Figure 2:</strong
-            > LOESS-smoothed temperature evolution by latitude bands with uncertainty
-            quantification.
-            <strong class="text-slate-600 dark:text-slate-300">Figure 3:</strong
-            > Q-Q plot, normality assessment, climate zone comparisons, and outlier
-            detection.
-        </p>
-
         <!-- At a Glance -->
         <section class="mb-8 glass panel p-6">
             <h2 class="text-xl font-bold mb-4">At a Glance</h2>
@@ -212,12 +203,6 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
                     > PySpark pipeline for distributed processing, strict seasonal
                     balance controls, Theil-Sen robust regression, and non-parametric
                     statistical framework.
-                </li>
-                <li>
-                    <strong class="text-slate-900 dark:text-slate-100"
-                        >My role:</strong
-                    > End-to-end data science: ETL pipeline, spatial indexing, quality
-                    filtering, statistical analysis, and visualization.
                 </li>
             </ul>
         </section>

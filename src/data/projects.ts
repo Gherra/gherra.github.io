@@ -66,4 +66,21 @@ export const projects: Project[] = [
             "Processes 2-20 images in under 2 seconds"
         ]
     },
+    {
+        title: "Global Temperature Trends Analysis",
+        slug: "global-temperature-trends",
+        description: "Analyzing 25 years of global city temperature data (2000-2024) to detect climate change patterns using PySpark, robust statistics, and seasonal balance controls.",
+        category: "ml",
+        tags: ["PySpark", "Data Science", "Climate Analysis", "Statistics"],
+        date: new Date("2024-01-01"),
+        featured: false,
+        image: "/images/cards/climate.svg",
+        repoUrl: "https://github.com/Gherra/global-temperature-trends-analysis",
+        highlights: [
+            "PySpark ETL + distributed preprocessing",
+            "Theil–Sen regression for robust trend estimation",
+            "Seasonal normalization across hemispheres",
+            "BallTree spatial indexing for nearest-station mapping"
+        ]
+    },
 ];
