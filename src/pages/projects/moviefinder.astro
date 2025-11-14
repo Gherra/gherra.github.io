@@ -10,7 +10,7 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
     <!-- Back Button -->
     <a
       href="/"
-      class="inline-flex items-center gap-2 text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 mb-8 transition-colors"
+      class="inline-flex items-center gap-2 text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white mb-8 transition-colors"
     >
       <svg
         class="w-5 h-5"
@@ -24,135 +24,112 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
           stroke-width="2"
           d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
       </svg>
-      Back to Home
+      Back
     </a>
 
     <!-- Header -->
     <header
-      class="relative mb-12 -mx-4 md:mx-0 overflow-hidden rounded-2xl border border-slate-200/60 dark:border-slate-700/60"
+      class="mb-12 border-l-4 border-green-500 pl-6 bg-slate-50 dark:bg-slate-900 border-2 border-slate-200 dark:border-slate-800 p-8"
     >
-      <!-- Base soft gradient (visible in light & dark) -->
-      <div
-        class="relative bg-gradient-to-br from-emerald-50 to-sky-50 dark:from-slate-950 dark:to-emerald-950"
-      >
-        <div class="px-4 md:px-8 py-10">
-          <div class="flex items-center gap-3 mb-4">
-            <span
-              class="px-3 py-1 rounded-full text-sm font-medium bg-gradient-to-r from-emerald-500 to-teal-500 text-white shadow-sm"
-            >
-              Android
-            </span>
-            <span class="text-slate-600/80 dark:text-slate-300/80">
-              November 2024
-            </span>
-          </div>
-
-          <h1 class="text-4xl md:text-5xl font-bold tracking-tight">
-            <span
-              class="bg-clip-text text-transparent bg-gradient-to-r from-slate-900 to-slate-700 dark:from-white dark:to-slate-300"
-            >
-              MovieFinder
-            </span>
-          </h1>
-
-          <p
-            class="mt-3 text-lg text-slate-700/90 dark:text-slate-300/90 max-w-3xl"
+      <div class="space-y-4">
+        <div class="flex items-center gap-3 flex-wrap">
+          <span
+            class="px-3 py-1 text-xs font-mono uppercase bg-green-500 text-white"
           >
-            Modern Android app for discovering movies with swipe-based UI,
-            personalized recommendations, and seamless TMDb API integration.
-          </p>
-
-          <div class="flex flex-wrap gap-3 mt-6">
-            <a
-              href="https://github.com/Gherra/MovieFinder"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="px-5 py-2 rounded-xl font-medium text-white bg-gradient-to-r from-emerald-500 to-teal-500 hover:scale-[1.02] active:scale-[.99] transition"
-            >
-              View Code
-            </a>
-            <a
-              href="https://github.com/Gherra/MovieFinder/releases"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="px-5 py-2 rounded-xl font-medium border border-emerald-300/80 dark:border-emerald-500/70 hover:bg-emerald-50/60 dark:hover:bg-emerald-900/40 text-slate-800 dark:text-slate-100 transition"
-            >
-              Download APK
-            </a>
-          </div>
+            Android
+          </span>
+          <span class="text-sm text-slate-600 dark:text-slate-400">
+            November 2025 • Work in Progress
+          </span>
         </div>
-      </div>
 
-      <!-- Decorative radial blobs for depth -->
-      <div
-        class="pointer-events-none absolute inset-0 mix-blend-multiply opacity-50"
-      >
-        <div
-          class="absolute -top-10 -left-16 w-64 h-64 rounded-full blur-3xl"
-          style="background:radial-gradient(60% 60% at 50% 50%, rgba(16,185,129,0.22), transparent)"
-        >
-        </div>
-        <div
-          class="absolute -bottom-16 -right-10 w-72 h-72 rounded-full blur-3xl"
-          style="background:radial-gradient(60% 60% at 50% 50%, rgba(56,189,248,0.22), transparent)"
-        >
+        <h1 class="text-4xl md:text-5xl font-bold">MovieFinder</h1>
+
+        <p class="text-lg text-slate-600 dark:text-slate-400 max-w-2xl">
+          Modern Android app for discovering movies with swipe-based UI,
+          personalized recommendations, and seamless TMDb API integration.
+        </p>
+
+        <div class="flex flex-wrap gap-3">
+          <a
+            href="https://github.com/Gherra/MovieFinder"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="px-5 py-2 bg-slate-900 dark:bg-white text-white dark:text-slate-900 font-medium border-2 border-slate-900 dark:border-white hover:bg-white dark:hover:bg-slate-900 hover:text-slate-900 dark:hover:text-white transition-colors"
+          >
+            View Code
+          </a>
+          <a
+            href="https://github.com/Gherra/MovieFinder/releases"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="px-5 py-2 border-2 border-slate-300 dark:border-slate-600 font-medium hover:border-slate-900 dark:hover:border-white transition-colors"
+          >
+            Download APK
+          </a>
         </div>
       </div>
     </header>
 
     <!-- Stats Grid -->
-    <section class="mb-6 grid grid-cols-2 md:grid-cols-4 gap-3">
-      <div class="glass panel p-4 text-center">
+    <section class="mb-8 grid grid-cols-2 md:grid-cols-4 gap-4">
+      <div class="stat-card">
         <div
-          class="text-xs uppercase tracking-wide text-slate-500 dark:text-slate-400"
+          class="text-xs font-mono uppercase text-slate-500 dark:text-slate-400 mb-1"
         >
           UI Framework
         </div>
-        <div class="mt-1 text-xl font-semibold">Jetpack Compose</div>
+        <div class="text-sm font-semibold">Jetpack Compose</div>
       </div>
-      <div class="glass panel p-4 text-center">
+      <div class="stat-card">
         <div
-          class="text-xs uppercase tracking-wide text-slate-500 dark:text-slate-400"
+          class="text-xs font-mono uppercase text-slate-500 dark:text-slate-400 mb-1"
         >
           Architecture
         </div>
-        <div class="mt-1 text-xl font-semibold">MVVM</div>
+        <div class="text-sm font-semibold">MVVM</div>
       </div>
-      <div class="glass panel p-4 text-center">
+      <div class="stat-card">
         <div
-          class="text-xs uppercase tracking-wide text-slate-500 dark:text-slate-400"
+          class="text-xs font-mono uppercase text-slate-500 dark:text-slate-400 mb-1"
         >
           Database
         </div>
-        <div class="mt-1 text-xl font-semibold">Room + Cache</div>
+        <div class="text-sm font-semibold">Room + Cache</div>
       </div>
-      <div class="glass panel p-4 text-center">
+      <div class="stat-card">
         <div
-          class="text-xs uppercase tracking-wide text-slate-500 dark:text-slate-400"
+          class="text-xs font-mono uppercase text-slate-500 dark:text-slate-400 mb-1"
         >
           Status
         </div>
-        <div class="mt-1 text-xl font-semibold">Complete</div>
+        <div class="text-sm font-semibold">WIP</div>
       </div>
     </section>
 
     <!-- Screenshots -->
-    <section class="mt-6 mb-8 grid grid-cols-1 md:grid-cols-3 gap-4">
-      <div class="glass panel overflow-hidden">
+    <section class="mb-8 grid grid-cols-1 md:grid-cols-3 gap-4">
+      <div
+        class="border-2 border-slate-200 dark:border-slate-800 overflow-hidden"
+      >
         <img
           src="/images/moviefinder/explore.png"
           alt="Explore movies"
           class="w-full h-auto max-h-96 object-contain"
         />
       </div>
-      <div class="glass panel overflow-hidden">
+      <div
+        class="border-2 border-slate-200 dark:border-slate-800 overflow-hidden"
+      >
         <img
           src="/images/moviefinder/swipe.png"
           alt="Swipe interface"
           class="w-full h-auto max-h-96 object-contain"
         />
       </div>
-      <div class="glass panel overflow-hidden">
+      <div
+        class="border-2 border-slate-200 dark:border-slate-800 overflow-hidden"
+      >
         <img
           src="/images/moviefinder/for-you.png"
           alt="Personalized recommendations"
@@ -161,21 +138,22 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
       </div>
     </section>
 
+    <!-- Caption -->
     <p
-      class="mb-12 text-sm text-center text-slate-500 dark:text-slate-400 max-w-3xl mx-auto"
+      class="mb-12 text-sm text-slate-500 dark:text-slate-400 border-l-2 border-slate-300 dark:border-slate-700 pl-4"
     >
-      <strong class="text-slate-600 dark:text-slate-300">Left:</strong> Browse trending
+      <strong class="text-slate-700 dark:text-slate-300">Left:</strong> Browse trending
       and top-rated movies.
-      <strong class="text-slate-600 dark:text-slate-300">Center:</strong> Swipe right
+      <strong class="text-slate-700 dark:text-slate-300">Center:</strong> Swipe right
       to like, left to pass, up for "not sure".
-      <strong class="text-slate-600 dark:text-slate-300">Right:</strong> Get personalized
-      "For You" recommendations based on your preferences.
+      <strong class="text-slate-700 dark:text-slate-300">Right:</strong> Get personalized
+      "For You" recommendations.
     </p>
 
     <!-- At a Glance -->
-    <section class="mb-8 glass panel p-6">
-      <h2 class="text-xl font-bold mb-4">At a Glance</h2>
-      <ul class="space-y-2 text-slate-600 dark:text-slate-300">
+    <section class="mb-8 card p-6 border-l-4 border-green-500">
+      <h2 class="text-xl font-bold mb-4">Overview</h2>
+      <ul class="space-y-2 text-slate-600 dark:text-slate-300 text-sm">
         <li>
           <strong class="text-slate-900 dark:text-slate-100">Problem:</strong> Movie
           discovery apps overwhelm users with endless scrolling and complex filters.
@@ -190,14 +168,15 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 
     <!-- Main Content -->
     <div
-      class="glass panel prose prose-lg prose-slate dark:prose-invert max-w-none
+      class="card prose prose-slate dark:prose-invert max-w-none
             prose-headings:scroll-mt-24
-            prose-h2:mt-10 prose-h2:mb-4 prose-h2:tracking-tight
-            prose-h3:mt-6 prose-h3:mb-3
+            prose-h2:text-2xl prose-h2:font-bold prose-h2:mt-10 prose-h2:mb-4
+            prose-h3:text-lg prose-h3:font-semibold prose-h3:mt-6 prose-h3:mb-3
+            prose-p:text-slate-700 dark:prose-p:text-slate-300
             prose-p:leading-relaxed
-            prose-li:marker:text-slate-400
-            prose-a:text-green-600 dark:prose-a:text-emerald-300 hover:prose-a:underline
-            px-5 md:px-8 py-6 md:py-8"
+            prose-a:text-green-600 dark:prose-a:text-green-400 hover:prose-a:underline
+            prose-strong:text-slate-900 dark:prose-strong:text-slate-100
+            px-6 py-8"
     >
       <h2>Problem & Context</h2>
       <p>
@@ -216,7 +195,7 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 
       <h2>Key Features</h2>
       <div class="not-prose mt-6 grid gap-4 md:grid-cols-2">
-        <div class="glass panel p-5">
+        <div class="card p-5">
           <h3
             class="text-base font-semibold mb-2 text-slate-900 dark:text-slate-100"
           >
@@ -228,31 +207,31 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
           </p>
         </div>
 
-        <div class="glass panel p-5">
+        <div class="card p-5">
           <h3
             class="text-base font-semibold mb-2 text-slate-900 dark:text-slate-100"
           >
             Personalized recommendations
           </h3>
           <p class="text-sm text-slate-600 dark:text-slate-300">
-            Analyzes your preferences (genre, rating, release year) to suggest
-            relevant content in the "For You" tab.
+            Algorithm learns from your swipes to suggest movies matching your
+            genre and rating preferences.
           </p>
         </div>
 
-        <div class="glass panel p-5">
+        <div class="card p-5">
           <h3
             class="text-base font-semibold mb-2 text-slate-900 dark:text-slate-100"
           >
-            Efficient data handling
+            Smart caching
           </h3>
           <p class="text-sm text-slate-600 dark:text-slate-300">
-            Room database caches movie data with pagination for smooth scrolling
-            and offline access.
+            Room database with pagination reduces API calls and enables offline
+            browsing.
           </p>
         </div>
 
-        <div class="glass panel p-5">
+        <div class="card p-5">
           <h3
             class="text-base font-semibold mb-2 text-slate-900 dark:text-slate-100"
           >
@@ -264,7 +243,7 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
           </p>
         </div>
 
-        <div class="glass panel p-5">
+        <div class="card p-5">
           <h3
             class="text-base font-semibold mb-2 text-slate-900 dark:text-slate-100"
           >
@@ -276,7 +255,7 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
           </p>
         </div>
 
-        <div class="glass panel p-5">
+        <div class="card p-5">
           <h3
             class="text-base font-semibold mb-2 text-slate-900 dark:text-slate-100"
           >
@@ -356,21 +335,11 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
         </li>
       </ol>
 
-      <!-- <div
-        class="not-prose my-6 inline-flex items-center gap-2 px-4 py-2 rounded-full bg-green-50 dark:bg-green-950/50 border border-green-200 dark:border-green-800"
-      >
-        <span class="inline-block w-2 h-2 rounded-full bg-emerald-400"></span>
-        <span class="text-sm text-slate-700 dark:text-slate-300">
-          <strong class="text-slate-900 dark:text-slate-100"
-            >Smart caching:</strong
-          > TMDb data cached locally to reduce API calls and enable offline browsing.
-        </span>
-      </div> -->
-
       <p>
-        Samrt caching: TMDb data cached locally to reduce API calls and enable
+        Smart caching: TMDb data cached locally to reduce API calls and enable
         offline browsing.
       </p>
+
       <h2>Results & Impact</h2>
       <ul>
         <li>Clean, intuitive interface that users can understand instantly</li>
@@ -389,7 +358,7 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 
       <h2>Challenges & Learnings</h2>
       <div class="not-prose space-y-4">
-        <div class="glass panel p-5">
+        <div class="card p-5">
           <p class="text-slate-900 dark:text-slate-100 font-semibold mb-2">
             Challenge: Implementing smooth swipe animations while maintaining
             performance.
@@ -399,7 +368,7 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
             recomposition to avoid lag.
           </p>
         </div>
-        <div class="glass panel p-5">
+        <div class="card p-5">
           <p class="text-slate-900 dark:text-slate-100 font-semibold mb-2">
             Challenge: Managing pagination with Room and Retrofit to avoid
             duplicate data.
@@ -409,7 +378,7 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
             stored in the database.
           </p>
         </div>
-        <div class="glass panel p-5">
+        <div class="card p-5">
           <p class="text-slate-900 dark:text-slate-100 font-semibold mb-2">
             Challenge: Building a recommendation algorithm without
             over-complicating it.
@@ -448,34 +417,41 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
           <a
             href="https://github.com/Gherra/MovieFinder"
             target="_blank"
-            rel="noopener noreferrer">GitHub Repository</a
+            rel="noopener noreferrer"
           >
+            GitHub Repository
+          </a>
         </li>
         <li>
           <a
             href="https://github.com/Gherra/MovieFinder/releases"
             target="_blank"
-            rel="noopener noreferrer">Download APK</a
+            rel="noopener noreferrer"
           >
+            Download APK
+          </a>
         </li>
       </ul>
     </div>
 
-    <nav class="mt-10 grid grid-cols-3 text-sm text-slate-500">
+    <!-- Navigation -->
+    <nav
+      class="mt-12 pt-8 border-t-2 border-slate-200 dark:border-slate-800 grid grid-cols-3 text-sm"
+    >
       <span></span>
 
       <a
         href="/"
-        class="mx-auto hover:text-slate-700 dark:hover:text-slate-300"
+        class="mx-auto hover:text-slate-600 dark:hover:text-slate-400"
       >
-        Back to Home
+        Home
       </a>
 
       <a
         href="/projects/meethalf"
-        class="justify-self-end inline-flex items-center gap-2 hover:text-slate-700 dark:hover:text-slate-300"
+        class="justify-self-end inline-flex items-center gap-2 hover:text-slate-600 dark:hover:text-slate-400"
       >
-        Next: MeetHalf <span aria-hidden>→</span>
+        MeetHalf <span>→</span>
       </a>
     </nav>
   </article>

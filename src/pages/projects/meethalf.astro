@@ -10,7 +10,7 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
     <!-- Back Button -->
     <a
       href="/"
-      class="inline-flex items-center gap-2 text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 mb-8 transition-colors"
+      class="inline-flex items-center gap-2 text-slate-600 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white mb-8 transition-colors"
     >
       <svg
         class="w-5 h-5"
@@ -24,115 +24,95 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
           stroke-width="2"
           d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
       </svg>
-      Back to Home
+      Back
     </a>
 
-    <!-- Header -->
+    <!-- Header - No gradient blobs, clean solid design -->
     <header
-      class="relative mb-12 -mx-4 md:mx-0 overflow-hidden rounded-2xl border border-slate-200/60 dark:border-slate-700/60"
+      class="mb-12 border-l-4 border-blue-500 pl-6 bg-slate-50 dark:bg-slate-900 border-2 border-slate-200 dark:border-slate-800 p-8"
     >
-      <!-- Base soft gradient (visible in light & dark) -->
-      <div
-        class="relative bg-gradient-to-br from-blue-100 to-cyan-100 dark:from-blue-950 dark:to-cyan-950"
-      >
-        <div class="px-4 md:px-8 py-10">
-          <div class="flex items-center gap-3 mb-4">
-            <span
-              class="px-3 py-1 rounded-full text-sm font-medium bg-gradient-to-r from-blue-600 to-cyan-600 text-white shadow-sm"
-            >
-              Web
-            </span>
-            <span class="text-slate-600/80 dark:text-slate-300/80"
-              >October 2025 • Work in Progress</span
-            >
-          </div>
-          <h1 class="text-4xl md:text-5xl font-bold tracking-tight">
-            <span
-              class="bg-clip-text text-transparent bg-gradient-to-r from-slate-900 to-slate-700 dark:from-white dark:to-slate-300"
-            >
-              MeetHalf
-            </span>
-          </h1>
-          <p
-            class="mt-3 text-lg text-slate-700/90 dark:text-slate-300/90 max-w-3xl"
+      <div class="space-y-4">
+        <div class="flex items-center gap-3 flex-wrap">
+          <span
+            class="px-3 py-1 text-xs font-mono uppercase bg-blue-500 text-white"
           >
-            Smart meeting planner that finds the fairest location for groups
-            where everyone has different travel modes.
-          </p>
-          <div class="flex flex-wrap gap-3 mt-6">
-            <a
-              href="https://github.com/Gherra/MeetHalf"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="px-5 py-2 rounded-xl font-medium text-white bg-gradient-to-r from-blue-600 to-cyan-600 hover:scale-[1.02] active:scale-[.99] transition"
-            >
-              View Code
-            </a>
-          </div>
+            Web
+          </span>
+          <span class="text-sm text-slate-600 dark:text-slate-400">
+            October 2025 • Work in Progress
+          </span>
         </div>
-      </div>
 
-      <!-- Decorative radial blobs for depth -->
-      <div
-        class="pointer-events-none absolute inset-0 mix-blend-multiply opacity-60"
-      >
-        <div
-          class="absolute -top-10 -left-16 w-64 h-64 rounded-full blur-3xl"
-          style="background:radial-gradient(60% 60% at 50% 50%, rgba(59,130,246,.35), transparent)"
-        >
-        </div>
-        <div
-          class="absolute -bottom-16 -right-10 w-72 h-72 rounded-full blur-3xl"
-          style="background:radial-gradient(60% 60% at 50% 50%, rgba(34,211,238,.35), transparent)"
-        >
+        <h1 class="text-4xl md:text-5xl font-bold">MeetHalf</h1>
+
+        <p class="text-lg text-slate-600 dark:text-slate-400 max-w-2xl">
+          Smart meeting planner that finds the fairest location for groups where
+          everyone has different travel modes.
+        </p>
+
+        <div class="flex flex-wrap gap-3">
+          <a
+            href="https://github.com/Gherra/MeetHalf"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="px-5 py-2 bg-slate-900 dark:bg-white text-white dark:text-slate-900 font-medium border-2 border-slate-900 dark:border-white hover:bg-white dark:hover:bg-slate-900 hover:text-slate-900 dark:hover:text-white transition-colors"
+          >
+            View Code
+          </a>
         </div>
       </div>
     </header>
 
-    <section class="mb-6 grid grid-cols-2 md:grid-cols-4 gap-3">
-      <div class="glass panel p-4 text-center">
+    <!-- Stats Grid -->
+    <section class="mb-8 grid grid-cols-2 md:grid-cols-4 gap-4">
+      <div class="stat-card">
         <div
-          class="text-xs uppercase tracking-wide text-slate-500 dark:text-slate-400"
+          class="text-xs font-mono uppercase text-slate-500 dark:text-slate-400 mb-1"
         >
           People
         </div>
-        <div class="mt-1 text-xl font-semibold">2–8+</div>
+        <div class="text-xl font-bold">2–8+</div>
       </div>
-      <div class="glass panel p-4 text-center">
+      <div class="stat-card">
         <div
-          class="text-xs uppercase tracking-wide text-slate-500 dark:text-slate-400"
+          class="text-xs font-mono uppercase text-slate-500 dark:text-slate-400 mb-1"
         >
           Modes
         </div>
-        <div class="mt-1 text-xl font-semibold">Car • Transit • Walk</div>
+        <div class="text-sm font-semibold">Car • Transit • Walk</div>
       </div>
-      <div class="glass panel p-4 text-center">
+      <div class="stat-card">
         <div
-          class="text-xs uppercase tracking-wide text-slate-500 dark:text-slate-400"
+          class="text-xs font-mono uppercase text-slate-500 dark:text-slate-400 mb-1"
         >
           Goal
         </div>
-        <div class="mt-1 text-xl font-semibold">Min Avg Time</div>
+        <div class="text-sm font-semibold">Min Avg Time</div>
       </div>
-      <div class="glass panel p-4 text-center">
+      <div class="stat-card">
         <div
-          class="text-xs uppercase tracking-wide text-slate-500 dark:text-slate-400"
+          class="text-xs font-mono uppercase text-slate-500 dark:text-slate-400 mb-1"
         >
           Status
         </div>
-        <div class="mt-1 text-xl font-semibold">WIP</div>
+        <div class="text-sm font-semibold">WIP</div>
       </div>
     </section>
 
-    <section class="mt-6 mb-8 grid grid-cols-1 md:grid-cols-2 gap-4">
-      <div class="glass panel overflow-hidden">
+    <!-- Screenshots -->
+    <section class="mb-8 grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div
+        class="border-2 border-slate-200 dark:border-slate-800 overflow-hidden"
+      >
         <img
           src="/images/meethalf-1.png"
           alt="Participants & modes"
           class="w-full h-auto"
         />
       </div>
-      <div class="glass panel overflow-hidden">
+      <div
+        class="border-2 border-slate-200 dark:border-slate-800 overflow-hidden"
+      >
         <img
           src="/images/meethalf-2.png"
           alt="Map with venue options"
@@ -143,18 +123,18 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 
     <!-- Caption -->
     <p
-      class="mb-12 text-sm text-center text-slate-500 dark:text-slate-400 max-w-3xl mx-auto"
+      class="mb-12 text-sm text-slate-500 dark:text-slate-400 border-l-2 border-slate-300 dark:border-slate-700 pl-4"
     >
-      <strong class="text-slate-600 dark:text-slate-300">Left:</strong> Participant
+      <strong class="text-slate-700 dark:text-slate-300">Left:</strong> Participant
       setup with multi-modal travel options.
-      <strong class="text-slate-600 dark:text-slate-300">Right:</strong> Ranked meeting
+      <strong class="text-slate-700 dark:text-slate-300">Right:</strong> Ranked meeting
       spots with per-person travel times.
     </p>
 
     <!-- At a Glance -->
-    <section class="mb-8 glass panel p-6">
-      <h2 class="text-xl font-bold mb-4">At a Glance</h2>
-      <ul class="space-y-2 text-slate-600 dark:text-slate-300">
+    <section class="mb-8 card p-6 border-l-4 border-blue-500">
+      <h2 class="text-xl font-bold mb-4">Overview</h2>
+      <ul class="space-y-2 text-slate-600 dark:text-slate-300 text-sm">
         <li>
           <strong class="text-slate-900 dark:text-slate-100">Problem:</strong> Fairly
           choosing meetup spots for 2–8+ people with different travel modes.
@@ -168,14 +148,15 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 
     <!-- Main Content -->
     <div
-      class="glass panel prose prose-lg prose-slate dark:prose-invert max-w-none
+      class="card prose prose-slate dark:prose-invert max-w-none
             prose-headings:scroll-mt-24
-            prose-h2:mt-10 prose-h2:mb-4 prose-h2:tracking-tight
-            prose-h3:mt-6 prose-h3:mb-3
+            prose-h2:text-2xl prose-h2:font-bold prose-h2:mt-10 prose-h2:mb-4
+            prose-h3:text-lg prose-h3:font-semibold prose-h3:mt-6 prose-h3:mb-3
+            prose-p:text-slate-700 dark:prose-p:text-slate-300
             prose-p:leading-relaxed
-            prose-li:marker:text-slate-400
-            prose-a:text-blue-600 dark:prose-a:text-cyan-300 hover:prose-a:underline
-            px-5 md:px-8 py-6 md:py-8"
+            prose-a:text-blue-600 dark:prose-a:text-blue-400 hover:prose-a:underline
+            prose-strong:text-slate-900 dark:prose-strong:text-slate-100
+            px-6 py-8"
     >
       <h2>Problem & Motivation</h2>
       <p>
@@ -218,163 +199,17 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
         </li>
       </ol>
 
-      <h2>Fairness Algorithm</h2>
-      <p>
-        MeetHalf uses a <strong>balanced fairness algorithm</strong> that prioritizes
-        venues where the group's average travel time is minimized:
-      </p>
-      <ol>
-        <li>
-          <strong>Calculate center point:</strong> Geometric average of all participant
-          locations
-        </li>
-        <li>
-          <strong>Search nearby venues:</strong> Query Google Places API within 3km
-          radius
-        </li>
-        <li>
-          <strong>Get travel times:</strong> For each venue, calculate travel time
-          for each person using their chosen mode
-        </li>
-        <li>
-          <strong>Calculate fairness metrics:</strong>
-          <ul>
-            <li><em>Average time:</em> Mean of all travel times</li>
-            <li><em>Max time:</em> Longest individual travel time</li>
-            <li><em>Time spread:</em> Difference between max and min times</li>
-          </ul>
-        </li>
-        <li>
-          <strong>Sort by average time:</strong> Venues with lowest average time
-          appear first
-        </li>
-        <li>
-          <strong>Highlight fair options:</strong> Badge venues where spread ≤ 5
-          minutes (everyone arrives within a similar timeframe)
-        </li>
-      </ol>
-
-      <p class="italic text-slate-600 dark:text-slate-300 my-4">
-        <strong>Why average time?</strong> It balances everyone’s convenience—nobody
-        gets stuck with the 40-minute outlier.
-      </p>
-
       <h2>Technical Stack</h2>
       <ul>
         <li>
           <strong>Next.js 15:</strong> React framework with server-side rendering
         </li>
-        <li>
-          <strong>TypeScript:</strong> Type-safe development with better DX
-        </li>
-        <li>
-          <strong>Tailwind CSS:</strong> Rapid UI development with utility classes
-        </li>
+        <li><strong>TypeScript:</strong> Type-safe development</li>
+        <li><strong>Tailwind CSS:</strong> Utility-first styling</li>
         <li>
           <strong>Google Maps Platform:</strong> Maps JavaScript API, Places API,
           Directions API, Geocoding API
         </li>
-        <li><strong>Vercel:</strong> Deployment (coming soon)</li>
-      </ul>
-
-      <h2>Key Features</h2>
-      <div class="not-prose mt-6 grid gap-4 md:grid-cols-2">
-        <div class="glass panel p-5">
-          <h3
-            class="text-base font-semibold mb-2 text-slate-900 dark:text-slate-100"
-          >
-            Multi-person support
-          </h3>
-          <p class="text-sm text-slate-600 dark:text-slate-300">
-            Designed for 2–8+ people; the UI and algorithm both scale to larger
-            groups.
-          </p>
-        </div>
-
-        <div class="glass panel p-5">
-          <h3
-            class="text-base font-semibold mb-2 text-slate-900 dark:text-slate-100"
-          >
-            Per-person travel modes
-          </h3>
-          <p class="text-sm text-slate-600 dark:text-slate-300">
-            Each participant chooses driving, transit, or walking; routes are
-            mixed per venue.
-          </p>
-        </div>
-
-        <div class="glass panel p-5">
-          <h3
-            class="text-base font-semibold mb-2 text-slate-900 dark:text-slate-100"
-          >
-            Real-time travel times
-          </h3>
-          <p class="text-sm text-slate-600 dark:text-slate-300">
-            Uses Google Directions API for accurate estimates based on current
-            traffic.
-          </p>
-        </div>
-
-        <div class="glass panel p-5">
-          <h3
-            class="text-base font-semibold mb-2 text-slate-900 dark:text-slate-100"
-          >
-            Smart venue suggestions
-          </h3>
-          <p class="text-sm text-slate-600 dark:text-slate-300">
-            Top 5 places sorted by fairness + ratings from Google Places.
-          </p>
-        </div>
-
-        <div class="glass panel p-5">
-          <h3
-            class="text-base font-semibold mb-2 text-slate-900 dark:text-slate-100"
-          >
-            Interactive map
-          </h3>
-          <p class="text-sm text-slate-600 dark:text-slate-300">
-            Visual display of participants and suggested venues with color-coded
-            markers.
-          </p>
-        </div>
-
-        <div class="glass panel p-5">
-          <h3
-            class="text-base font-semibold mb-2 text-slate-900 dark:text-slate-100"
-          >
-            Venue details
-          </h3>
-          <p class="text-sm text-slate-600 dark:text-slate-300">
-            Ratings, price levels, and open hours from Google Places API.
-          </p>
-        </div>
-      </div>
-
-      <h2>Performance Considerations</h2>
-      <p>
-        For a group of 5 people and 20 candidate venues, the app makes ~100 API
-        calls (5 people × 20 venues = 100 directions queries). To handle this
-        efficiently:
-      </p>
-      <ul>
-        <li>API calls are batched and parallelized</li>
-        <li>Results are cached client-side to avoid redundant requests</li>
-        <li>Loading states keep users informed (~5-10 seconds for results)</li>
-      </ul>
-
-      <h2>Future Improvements</h2>
-      <ul>
-        <li>
-          Cylindrical search instead of circular (better for groups along a
-          line)
-        </li>
-        <li>Save/share meeting plans with a URL</li>
-        <li>Allow custom venue types beyond the 4 defaults</li>
-        <li>
-          Add preference weighting (e.g., prioritize minimizing one person's
-          time)
-        </li>
-        <li>Integration with calendar apps for one-click scheduling</li>
       </ul>
 
       <h2>Links</h2>
@@ -383,32 +218,37 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
           <a
             href="https://github.com/Gherra/MeetHalf"
             target="_blank"
-            rel="noopener noreferrer">GitHub Repository</a
+            rel="noopener noreferrer"
           >
+            GitHub Repository
+          </a>
         </li>
       </ul>
     </div>
 
-    <nav class="mt-10 grid grid-cols-3 text-sm text-slate-500">
+    <!-- Navigation -->
+    <nav
+      class="mt-12 pt-8 border-t-2 border-slate-200 dark:border-slate-800 grid grid-cols-3 text-sm"
+    >
       <a
         href="/projects/moviefinder"
-        class="inline-flex items-center gap-2 hover:text-slate-700 dark:hover:text-slate-300"
+        class="inline-flex items-center gap-2 hover:text-slate-600 dark:hover:text-slate-400"
       >
-        <span aria-hidden>←</span> Previous: MovieFinder
+        <span>←</span> MovieFinder
       </a>
 
       <a
         href="/"
-        class="mx-auto hover:text-slate-700 dark:hover:text-slate-300"
+        class="mx-auto hover:text-slate-600 dark:hover:text-slate-400"
       >
-        Back to Home
+        Home
       </a>
 
       <a
         href="/projects/panorama-fastr-stitch"
-        class="justify-self-end inline-flex items-center gap-2 hover:text-slate-700 dark:hover:text-slate-300"
+        class="justify-self-end inline-flex items-center gap-2 hover:text-slate-600 dark:hover:text-slate-400"
       >
-        Next: Panorama FastR-Stitch <span aria-hidden>→</span>
+        Panorama <span>→</span>
       </a>
     </nav>
   </article>
