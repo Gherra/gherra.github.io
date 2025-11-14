@@ -1,122 +1,482 @@
 ---
-import BaseLayout from '../../layouts/BaseLayout.astro';
+import BaseLayout from "../../layouts/BaseLayout.astro";
 ---
 
-<BaseLayout title="MovieFinder — Raman Kumar" description="Modern Android app for discovering movies with swipe-based UI and personalized recommendations.">
+<BaseLayout
+  title="MovieFinder — Raman Kumar"
+  description="Modern Android app for discovering movies with swipe-based UI and personalized recommendations."
+>
   <article class="max-w-4xl mx-auto px-4 py-12">
-    
     <!-- Back Button -->
-    <a href="/" class="inline-flex items-center gap-2 text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 mb-8 transition-colors">
-      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/>
+    <a
+      href="/"
+      class="inline-flex items-center gap-2 text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 mb-8 transition-colors"
+    >
+      <svg
+        class="w-5 h-5"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
       </svg>
       Back to Home
     </a>
 
     <!-- Header -->
-    <header class="mb-12 -mx-4 px-4 py-8 bg-gradient-to-br from-green-50 to-emerald-50 dark:from-green-950 dark:to-emerald-950 rounded-2xl">
+    <header
+      class="relative mb-12 -mx-4 md:mx-0 overflow-hidden rounded-2xl border border-slate-200/60 dark:border-slate-700/60"
+    >
+      <!-- Base soft gradient (visible in light & dark) -->
+      <div
+        class="relative bg-gradient-to-br from-emerald-50 to-sky-50 dark:from-slate-950 dark:to-emerald-950"
+      >
+        <div class="px-4 md:px-8 py-10">
+          <div class="flex items-center gap-3 mb-4">
+            <span
+              class="px-3 py-1 rounded-full text-sm font-medium bg-gradient-to-r from-emerald-500 to-teal-500 text-white shadow-sm"
+            >
+              Android
+            </span>
+            <span class="text-slate-600/80 dark:text-slate-300/80">
+              November 2024
+            </span>
+          </div>
 
-      <div class="flex items-center gap-3 mb-4">
-        <span class="px-3 py-1 rounded-full text-sm font-medium bg-gradient-to-r from-green-500 to-emerald-600 text-white">
-          Android
-        </span>
-        <span class="text-slate-500 dark:text-slate-400">November 2024</span>
+          <h1 class="text-4xl md:text-5xl font-bold tracking-tight">
+            <span
+              class="bg-clip-text text-transparent bg-gradient-to-r from-slate-900 to-slate-700 dark:from-white dark:to-slate-300"
+            >
+              MovieFinder
+            </span>
+          </h1>
+
+          <p
+            class="mt-3 text-lg text-slate-700/90 dark:text-slate-300/90 max-w-3xl"
+          >
+            Modern Android app for discovering movies with swipe-based UI,
+            personalized recommendations, and seamless TMDb API integration.
+          </p>
+
+          <div class="flex flex-wrap gap-3 mt-6">
+            <a
+              href="https://github.com/Gherra/MovieFinder"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="px-5 py-2 rounded-xl font-medium text-white bg-gradient-to-r from-emerald-500 to-teal-500 hover:scale-[1.02] active:scale-[.99] transition"
+            >
+              View Code
+            </a>
+            <a
+              href="https://github.com/Gherra/MovieFinder/releases"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="px-5 py-2 rounded-xl font-medium border border-emerald-300/80 dark:border-emerald-500/70 hover:bg-emerald-50/60 dark:hover:bg-emerald-900/40 text-slate-800 dark:text-slate-100 transition"
+            >
+              Download APK
+            </a>
+          </div>
+        </div>
       </div>
-      <h1 class="text-4xl md:text-5xl font-bold mb-4">MovieFinder</h1>
-      <p class="text-xl text-slate-600 dark:text-slate-400">
-        Modern Android app for discovering movies with swipe-based UI, personalized recommendations, and seamless TMDb API integration.
-      </p>
-      <div class="flex gap-3 mt-6">
-        <a href="https://github.com/Gherra/MovieFinder" target="_blank" rel="noopener noreferrer" class="px-5 py-2 rounded-lg bg-gradient-to-r from-blue-600 to-violet-600 text-white font-medium hover:shadow-lg transition-all">
-          View Code
-        </a>
-        <a href="https://github.com/Gherra/MovieFinder/releases" target="_blank" rel="noopener noreferrer" class="px-5 py-2 rounded-lg border border-slate-300 dark:border-slate-600 font-medium hover:bg-slate-100 dark:hover:bg-slate-700 transition-all">
-          Download APK
-        </a>
+
+      <!-- Decorative radial blobs for depth -->
+      <div
+        class="pointer-events-none absolute inset-0 mix-blend-multiply opacity-50"
+      >
+        <div
+          class="absolute -top-10 -left-16 w-64 h-64 rounded-full blur-3xl"
+          style="background:radial-gradient(60% 60% at 50% 50%, rgba(16,185,129,0.22), transparent)"
+        >
+        </div>
+        <div
+          class="absolute -bottom-16 -right-10 w-72 h-72 rounded-full blur-3xl"
+          style="background:radial-gradient(60% 60% at 50% 50%, rgba(56,189,248,0.22), transparent)"
+        >
+        </div>
       </div>
     </header>
 
+    <!-- Stats Grid -->
+    <section class="mb-6 grid grid-cols-2 md:grid-cols-4 gap-3">
+      <div class="glass panel p-4 text-center">
+        <div
+          class="text-xs uppercase tracking-wide text-slate-500 dark:text-slate-400"
+        >
+          UI Framework
+        </div>
+        <div class="mt-1 text-xl font-semibold">Jetpack Compose</div>
+      </div>
+      <div class="glass panel p-4 text-center">
+        <div
+          class="text-xs uppercase tracking-wide text-slate-500 dark:text-slate-400"
+        >
+          Architecture
+        </div>
+        <div class="mt-1 text-xl font-semibold">MVVM</div>
+      </div>
+      <div class="glass panel p-4 text-center">
+        <div
+          class="text-xs uppercase tracking-wide text-slate-500 dark:text-slate-400"
+        >
+          Database
+        </div>
+        <div class="mt-1 text-xl font-semibold">Room + Cache</div>
+      </div>
+      <div class="glass panel p-4 text-center">
+        <div
+          class="text-xs uppercase tracking-wide text-slate-500 dark:text-slate-400"
+        >
+          Status
+        </div>
+        <div class="mt-1 text-xl font-semibold">Complete</div>
+      </div>
+    </section>
+
+    <!-- Screenshots -->
+    <section class="mt-6 mb-8 grid grid-cols-1 md:grid-cols-3 gap-4">
+      <div class="glass panel overflow-hidden">
+        <img
+          src="/images/moviefinder/explore.png"
+          alt="Explore movies"
+          class="w-full h-auto max-h-96 object-contain"
+        />
+      </div>
+      <div class="glass panel overflow-hidden">
+        <img
+          src="/images/moviefinder/swipe.png"
+          alt="Swipe interface"
+          class="w-full h-auto max-h-96 object-contain"
+        />
+      </div>
+      <div class="glass panel overflow-hidden">
+        <img
+          src="/images/moviefinder/for-you.png"
+          alt="Personalized recommendations"
+          class="w-full h-auto max-h-96 object-contain"
+        />
+      </div>
+    </section>
+
+    <p
+      class="mb-12 text-sm text-center text-slate-500 dark:text-slate-400 max-w-3xl mx-auto"
+    >
+      <strong class="text-slate-600 dark:text-slate-300">Left:</strong> Browse trending
+      and top-rated movies.
+      <strong class="text-slate-600 dark:text-slate-300">Center:</strong> Swipe right
+      to like, left to pass, up for "not sure".
+      <strong class="text-slate-600 dark:text-slate-300">Right:</strong> Get personalized
+      "For You" recommendations based on your preferences.
+    </p>
+
+    <!-- At a Glance -->
+    <section class="mb-8 glass panel p-6">
+      <h2 class="text-xl font-bold mb-4">At a Glance</h2>
+      <ul class="space-y-2 text-slate-600 dark:text-slate-300">
+        <li>
+          <strong class="text-slate-900 dark:text-slate-100">Problem:</strong> Movie
+          discovery apps overwhelm users with endless scrolling and complex filters.
+        </li>
+        <li>
+          <strong class="text-slate-900 dark:text-slate-100">Solution:</strong> Tinder-style
+          swipe interface with personalized recommendations based on user preferences
+          (genre, rating, release year).
+        </li>
+      </ul>
+    </section>
+
     <!-- Main Content -->
-    <div class="prose prose-slate dark:prose-invert max-w-none">
-      
+    <div
+      class="glass panel prose prose-lg prose-slate dark:prose-invert max-w-none
+            prose-headings:scroll-mt-24
+            prose-h2:mt-10 prose-h2:mb-4 prose-h2:tracking-tight
+            prose-h3:mt-6 prose-h3:mb-3
+            prose-p:leading-relaxed
+            prose-li:marker:text-slate-400
+            prose-a:text-green-600 dark:prose-a:text-emerald-300 hover:prose-a:underline
+            px-5 md:px-8 py-6 md:py-8"
+    >
       <h2>Problem & Context</h2>
       <p>
-        Movie discovery apps often overwhelm users with endless scrolling and complex filters. The goal was to create an intuitive, engaging experience that helps users discover movies they'll actually want to watch — without the friction.
+        Movie discovery apps often overwhelm users with endless scrolling and
+        complex filters. The goal was to create an intuitive, engaging
+        experience that helps users discover movies they'll actually want to
+        watch without the friction.
       </p>
 
       <h2>Solution</h2>
       <p>
-        MovieFinder uses a Tinder-style swipe interface where users can quickly indicate interest (right swipe) or pass (left swipe). The app learns from these interactions to provide increasingly personalized recommendations.
+        MovieFinder uses a <strong>Tinder-style swipe interface</strong> where users
+        can quickly indicate interest (right swipe) or pass (left swipe). The app
+        learns from these interactions to provide increasingly personalized recommendations.
       </p>
 
       <h2>Key Features</h2>
-      <ul>
-        <li><strong>Swipe-based discovery:</strong> Intuitive Tinder-like UI for quick browsing through movies</li>
-        <li><strong>Personalized recommendations:</strong> Analyzes user preferences (genre, rating, release year) to suggest relevant content</li>
-        <li><strong>Efficient data handling:</strong> Room database caches movie data with pagination for smooth scrolling</li>
-        <li><strong>Filter system:</strong> Bottom navigation with genre and rating filters</li>
-        <li><strong>Modern UI:</strong> Material Design 3 with full light/dark theme support</li>
-      </ul>
+      <div class="not-prose mt-6 grid gap-4 md:grid-cols-2">
+        <div class="glass panel p-5">
+          <h3
+            class="text-base font-semibold mb-2 text-slate-900 dark:text-slate-100"
+          >
+            Swipe-based discovery
+          </h3>
+          <p class="text-sm text-slate-600 dark:text-slate-300">
+            Intuitive Tinder-like UI for quick browsing. Swipe right to like,
+            left to pass, up if you're unsure.
+          </p>
+        </div>
+
+        <div class="glass panel p-5">
+          <h3
+            class="text-base font-semibold mb-2 text-slate-900 dark:text-slate-100"
+          >
+            Personalized recommendations
+          </h3>
+          <p class="text-sm text-slate-600 dark:text-slate-300">
+            Analyzes your preferences (genre, rating, release year) to suggest
+            relevant content in the "For You" tab.
+          </p>
+        </div>
+
+        <div class="glass panel p-5">
+          <h3
+            class="text-base font-semibold mb-2 text-slate-900 dark:text-slate-100"
+          >
+            Efficient data handling
+          </h3>
+          <p class="text-sm text-slate-600 dark:text-slate-300">
+            Room database caches movie data with pagination for smooth scrolling
+            and offline access.
+          </p>
+        </div>
+
+        <div class="glass panel p-5">
+          <h3
+            class="text-base font-semibold mb-2 text-slate-900 dark:text-slate-100"
+          >
+            Filter system
+          </h3>
+          <p class="text-sm text-slate-600 dark:text-slate-300">
+            Bottom navigation with Trending, Top Rated, and Recent filters for
+            quick content discovery.
+          </p>
+        </div>
+
+        <div class="glass panel p-5">
+          <h3
+            class="text-base font-semibold mb-2 text-slate-900 dark:text-slate-100"
+          >
+            Modern UI
+          </h3>
+          <p class="text-sm text-slate-600 dark:text-slate-300">
+            Material Design 3 with full light/dark theme support and smooth
+            animations.
+          </p>
+        </div>
+
+        <div class="glass panel p-5">
+          <h3
+            class="text-base font-semibold mb-2 text-slate-900 dark:text-slate-100"
+          >
+            Favorites & History
+          </h3>
+          <p class="text-sm text-slate-600 dark:text-slate-300">
+            Save movies to your favorites list and track your viewing history.
+          </p>
+        </div>
+      </div>
 
       <h2>Technical Implementation</h2>
-      
+
       <h3>Architecture</h3>
       <p>
-        Built with <strong>MVVM architecture</strong> to separate concerns and enable testability:
+        Built with <strong>MVVM architecture</strong> to separate concerns and enable
+        testability:
       </p>
       <ul>
-        <li><strong>Model:</strong> Room database entities for local caching</li>
-        <li><strong>ViewModel:</strong> Manages UI state and business logic with Kotlin Coroutines</li>
-        <li><strong>View:</strong> Jetpack Compose UI with declarative state management</li>
+        <li>
+          <strong>Model:</strong> Room database entities for local caching and user
+          preferences
+        </li>
+        <li>
+          <strong>ViewModel:</strong> Manages UI state and business logic with Kotlin
+          Coroutines
+        </li>
+        <li>
+          <strong>View:</strong> Jetpack Compose UI with declarative state management
+        </li>
       </ul>
 
       <h3>Tech Stack</h3>
       <ul>
-        <li><strong>Jetpack Compose:</strong> Modern declarative UI framework</li>
-        <li><strong>Room Database:</strong> Local persistence with efficient caching</li>
-        <li><strong>Retrofit:</strong> Type-safe HTTP client for TMDb API integration</li>
-        <li><strong>Kotlin Coroutines:</strong> Async operations without blocking the main thread</li>
-        <li><strong>TMDb API:</strong> Comprehensive movie database with ratings, posters, and metadata</li>
+        <li>
+          <strong>Jetpack Compose:</strong> Modern declarative UI framework for smooth
+          animations
+        </li>
+        <li>
+          <strong>Room Database:</strong> Local persistence with efficient caching
+          and pagination
+        </li>
+        <li>
+          <strong>Retrofit:</strong> Type-safe HTTP client for TMDb API integration
+        </li>
+        <li>
+          <strong>Kotlin Coroutines:</strong> Async operations without blocking the
+          main thread
+        </li>
+        <li>
+          <strong>TMDb API:</strong> Comprehensive movie database with ratings, posters,
+          and metadata
+        </li>
+        <li>
+          <strong>Coil:</strong> Image loading library optimized for Compose
+        </li>
       </ul>
 
       <h3>Recommendation Algorithm</h3>
-      <p>
-        The app tracks user swipes to build a preference profile:
-      </p>
+      <p>The app tracks user swipes to build a preference profile:</p>
       <ol>
-        <li>Record genre preferences from right-swiped movies</li>
-        <li>Track preferred rating ranges (e.g., user tends to like 7.5+ rated movies)</li>
-        <li>Weight recent interactions more heavily than older ones</li>
-        <li>Fetch new recommendations filtered by these learned preferences</li>
+        <li>
+          <strong>Record genre preferences:</strong> Right-swiped movies contribute
+          to genre scores
+        </li>
+        <li>
+          <strong>Track rating ranges:</strong> User tends to like 7.5+ rated movies
+          → filter recommendations accordingly
+        </li>
+        <li>
+          <strong>Weight recent interactions:</strong> Recent swipes weighted more
+          heavily than older ones (time decay)
+        </li>
+        <li>
+          <strong>Fetch personalized content:</strong> "For You" tab fetches movies
+          matching learned preferences
+        </li>
       </ol>
 
+      <!-- <div
+        class="not-prose my-6 inline-flex items-center gap-2 px-4 py-2 rounded-full bg-green-50 dark:bg-green-950/50 border border-green-200 dark:border-green-800"
+      >
+        <span class="inline-block w-2 h-2 rounded-full bg-emerald-400"></span>
+        <span class="text-sm text-slate-700 dark:text-slate-300">
+          <strong class="text-slate-900 dark:text-slate-100"
+            >Smart caching:</strong
+          > TMDb data cached locally to reduce API calls and enable offline browsing.
+        </span>
+      </div> -->
+
+      <p>
+        Samrt caching: TMDb data cached locally to reduce API calls and enable
+        offline browsing.
+      </p>
       <h2>Results & Impact</h2>
       <ul>
         <li>Clean, intuitive interface that users can understand instantly</li>
         <li>Efficient pagination reduces API calls and improves performance</li>
-        <li>Local caching enables offline browsing of previously loaded content</li>
-        <li>Demonstrates modern Android development best practices</li>
+        <li>
+          Local caching enables offline browsing of previously loaded content
+        </li>
+        <li>
+          Personalization algorithm improves recommendation accuracy over time
+        </li>
+        <li>
+          Demonstrates modern Android development best practices (Compose, MVVM,
+          Coroutines)
+        </li>
       </ul>
 
       <h2>Challenges & Learnings</h2>
-      <p>
-        <strong>Challenge:</strong> Implementing smooth swipe animations while maintaining performance.
-        <br>
-        <strong>Solution:</strong> Used Jetpack Compose's gesture detection with optimized recomposition to avoid lag.
-      </p>
-      <p>
-        <strong>Challenge:</strong> Managing pagination with Room and Retrofit to avoid duplicate data.
-        <br>
-        <strong>Solution:</strong> Implemented cache-first strategy with pagination keys stored in the database.
-      </p>
+      <div class="not-prose space-y-4">
+        <div class="glass panel p-5">
+          <p class="text-slate-900 dark:text-slate-100 font-semibold mb-2">
+            Challenge: Implementing smooth swipe animations while maintaining
+            performance.
+          </p>
+          <p class="text-slate-600 dark:text-slate-400">
+            Solution: Used Jetpack Compose's gesture detection with optimized
+            recomposition to avoid lag.
+          </p>
+        </div>
+        <div class="glass panel p-5">
+          <p class="text-slate-900 dark:text-slate-100 font-semibold mb-2">
+            Challenge: Managing pagination with Room and Retrofit to avoid
+            duplicate data.
+          </p>
+          <p class="text-slate-600 dark:text-slate-400">
+            Solution: Implemented cache-first strategy with pagination keys
+            stored in the database.
+          </p>
+        </div>
+        <div class="glass panel p-5">
+          <p class="text-slate-900 dark:text-slate-100 font-semibold mb-2">
+            Challenge: Building a recommendation algorithm without
+            over-complicating it.
+          </p>
+          <p class="text-slate-600 dark:text-slate-400">
+            Solution: Used simple weighted genre scoring + rating filtering.
+            Keeps it fast and accurate.
+          </p>
+        </div>
+      </div>
+
+      <h2>Future Improvements</h2>
+      <ul>
+        <li>
+          Social features: Share favorites with friends and see what they're
+          watching
+        </li>
+        <li>
+          Watch providers: Show where movies are streaming (Netflix, Prime,
+          etc.)
+        </li>
+        <li>Advanced filters: Filter by decade, language, or director</li>
+        <li>
+          ML-based recommendations: Use collaborative filtering for better
+          suggestions
+        </li>
+        <li>
+          Watchlist management: Track movies you want to watch vs. already
+          watched
+        </li>
+      </ul>
 
       <h2>Links</h2>
       <ul>
-        <li><a href="https://github.com/Gherra/MovieFinder" target="_blank" rel="noopener noreferrer">GitHub Repository</a></li>
-        <li><a href="https://github.com/Gherra/MovieFinder/releases" target="_blank" rel="noopener noreferrer">Download APK</a></li>
+        <li>
+          <a
+            href="https://github.com/Gherra/MovieFinder"
+            target="_blank"
+            rel="noopener noreferrer">GitHub Repository</a
+          >
+        </li>
+        <li>
+          <a
+            href="https://github.com/Gherra/MovieFinder/releases"
+            target="_blank"
+            rel="noopener noreferrer">Download APK</a
+          >
+        </li>
       </ul>
-
     </div>
 
+    <nav class="mt-10 grid grid-cols-3 text-sm text-slate-500">
+      <span></span>
+
+      <a
+        href="/"
+        class="mx-auto hover:text-slate-700 dark:hover:text-slate-300"
+      >
+        Back to Home
+      </a>
+
+      <a
+        href="/projects/meethalf"
+        class="justify-self-end inline-flex items-center gap-2 hover:text-slate-700 dark:hover:text-slate-300"
+      >
+        Next: MeetHalf <span aria-hidden>→</span>
+      </a>
+    </nav>
   </article>
 </BaseLayout>
