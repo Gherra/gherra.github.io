@@ -163,10 +163,6 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
           <strong class="text-slate-900 dark:text-slate-100">Solution:</strong> Route-aware
           algorithm that minimizes group average travel time using Google Maps APIs.
         </li>
-        <li>
-          <strong class="text-slate-900 dark:text-slate-100">My role:</strong> End-to-end:
-          idea, algorithm design, Next.js frontend, Maps integration.
-        </li>
       </ul>
     </section>
 
@@ -393,16 +389,27 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
       </ul>
     </div>
 
-    <nav class="mt-10 flex items-center justify-between text-sm text-slate-500">
+    <nav class="mt-10 grid grid-cols-3 text-sm text-slate-500">
       <a
         href="/projects/moviefinder"
         class="inline-flex items-center gap-2 hover:text-slate-700 dark:hover:text-slate-300"
       >
         <span aria-hidden>←</span> Previous: MovieFinder
       </a>
-      <a href="/" class="hover:text-slate-700 dark:hover:text-slate-300"
-        >Back to Home</a
+
+      <a
+        href="/"
+        class="mx-auto hover:text-slate-700 dark:hover:text-slate-300"
       >
+        Back to Home
+      </a>
+
+      <a
+        href="/projects/panorama-fastr-stitch"
+        class="justify-self-end inline-flex items-center gap-2 hover:text-slate-700 dark:hover:text-slate-300"
+      >
+        Next: Panorama FastR-Stitch <span aria-hidden>→</span>
+      </a>
     </nav>
   </article>
 </BaseLayout>
