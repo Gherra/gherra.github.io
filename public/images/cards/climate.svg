@@ -115,9 +115,9 @@
   </g>
   
   <!-- PySpark icon (bottom right) - simplified spark -->
-  <g transform="translate(660, 510)" opacity="0.7">
+  <!-- <g transform="translate(660, 510)" opacity="0.7">
     <path d="M 0 -15 L -8 5 L 3 0 L 0 15 L 8 -5 L -3 0 Z" fill="white"/>
-  </g>
+  </g> -->
   
   <!-- Title text -->
   <text x="400" y="70" font-family="Arial, sans-serif" font-size="42" font-weight="bold" fill="white" text-anchor="middle" opacity="0.95">
