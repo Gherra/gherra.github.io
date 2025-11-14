@@ -1,83 +1,98 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
-import ProjectCard from '../components/ProjectCard.astro';
-import { projects } from '../data/projects';
+import BaseLayout from "../layouts/BaseLayout.astro";
+import ProjectCard from "../components/ProjectCard.astro";
+import { projects } from "../data/projects";
 ---
 
-<BaseLayout title="Projects — Raman Kumar" description="Explore my portfolio of Android apps, computer vision projects, and web applications.">
-  <section class="max-w-6xl mx-auto px-4 py-12">
-    
+<BaseLayout
+  title="Projects — Raman Kumar"
+  description="Explore my portfolio of Android apps, computer vision projects, and web applications."
+>
+  <section class="max-w-5xl mx-auto px-4 py-16">
     <!-- Header -->
-    <div class="text-center mb-12">
-      <h1 class="text-4xl font-bold mb-4">All Projects</h1>
-      <p class="text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
-        Android development, computer vision, and web applications — built with modern tools and clean architecture.
+    <div class="border-l-4 border-slate-900 dark:border-white pl-6 mb-12">
+      <h1 class="text-4xl md:text-5xl font-bold mb-4">All Projects</h1>
+      <p class="text-xl text-slate-600 dark:text-slate-400">
+        Android • Computer Vision • Web Development
       </p>
     </div>
 
     <!-- Filters -->
-    <div class="flex flex-wrap items-center justify-center gap-3 mb-12">
-      <button 
-        data-filter="all"
-        class="filter-btn px-5 py-2 rounded-full text-sm font-medium transition-all duration-200 bg-gradient-to-r from-blue-600 to-violet-600 text-white"
-      >
-        All Projects
-      </button>
-      <button 
-        data-filter="android"
-        class="filter-btn px-5 py-2 rounded-full text-sm font-medium transition-all duration-200 bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700"
-      >
-        Android
-      </button>
-      <button 
-        data-filter="ml"
-        class="filter-btn px-5 py-2 rounded-full text-sm font-medium transition-all duration-200 bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700"
-      >
-        Computer Vision
-      </button>
-      <button 
-        data-filter="web"
-        class="filter-btn px-5 py-2 rounded-full text-sm font-medium transition-all duration-200 bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700"
-      >
-        Web
-      </button>
+    <div class="mb-8 border-b-2 border-slate-200 dark:border-slate-800">
+      <div class="flex flex-wrap gap-1">
+        <button
+          data-filter="all"
+          class="filter-btn px-4 py-2 font-medium border-b-2 border-slate-900 dark:border-white transition-colors"
+        >
+          All
+        </button>
+        <button
+          data-filter="android"
+          class="filter-btn px-4 py-2 font-medium border-b-2 border-transparent hover:border-green-500 transition-colors"
+        >
+          Android
+        </button>
+        <button
+          data-filter="web"
+          class="filter-btn px-4 py-2 font-medium border-b-2 border-transparent hover:border-blue-500 transition-colors"
+        >
+          Web
+        </button>
+        <button
+          data-filter="ml"
+          class="filter-btn px-4 py-2 font-medium border-b-2 border-transparent hover:border-purple-500 transition-colors"
+        >
+          Computer Vision
+        </button>
+      </div>
     </div>
 
     <!-- Projects Grid -->
-    <div id="projects-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-      {projects.sort((a, b) => b.date.getTime() - a.date.getTime()).map(project => (
-        <div data-category={project.category} class="project-item">
-          <ProjectCard {...project} />
-        </div>
-      ))}
+    <div
+      id="projects-grid"
+      class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+    >
+      {
+        projects
+          .sort((a, b) => b.date.getTime() - a.date.getTime())
+          .map((project) => (
+            <div data-category={project.category} class="project-item">
+              <ProjectCard {...project} />
+            </div>
+          ))
+      }
     </div>
-
   </section>
 </BaseLayout>
 
 <script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const filterButtons = document.querySelectorAll('.filter-btn');
-    const projectItems = document.querySelectorAll('.project-item');
+  document.addEventListener("DOMContentLoaded", () => {
+    const filterButtons = document.querySelectorAll(".filter-btn");
+    const projectItems = document.querySelectorAll(
+      ".project-item",
+    ) as NodeListOf<HTMLElement>;
 
-    filterButtons.forEach(button => {
-      button.addEventListener('click', () => {
-        const filter = button.getAttribute('data-filter');
+    filterButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        const filter = button.getAttribute("data-filter");
 
-        // Update active button
-        filterButtons.forEach(btn => {
-          btn.classList.remove('bg-gradient-to-r', 'from-blue-600', 'to-violet-600', 'text-white');
-          btn.classList.add('bg-slate-100', 'dark:bg-slate-800', 'text-slate-700', 'dark:text-slate-300');
+        // Update active button styling
+        filterButtons.forEach((btn) => {
+          btn.classList.remove("border-slate-900", "dark:border-white");
+          btn.classList.add("border-transparent");
         });
-        button.classList.add('bg-gradient-to-r', 'from-blue-600', 'to-violet-600', 'text-white');
-        button.classList.remove('bg-slate-100', 'dark:bg-slate-800', 'text-slate-700', 'dark:text-slate-300');
+        button.classList.remove("border-transparent");
+        button.classList.add("border-slate-900", "dark:border-white");
 
         // Filter projects
-        projectItems.forEach(item => {
-          if (filter === 'all' || item.getAttribute('data-category') === filter) {
-            item.style.display = 'block';
+        projectItems.forEach((item) => {
+          if (
+            filter === "all" ||
+            item.getAttribute("data-category") === filter
+          ) {
+            item.style.display = "block";
           } else {
-            item.style.display = 'none';
+            item.style.display = "none";
           }
         });
       });

@@ -6,28 +6,22 @@ import BaseLayout from "../layouts/BaseLayout.astro";
     title="Contact — Raman Kumar"
     description="Get in touch with me for opportunities, collaborations, or to chat about tech."
 >
-    <article class="max-w-3xl mx-auto px-4 py-12">
+    <article class="max-w-4xl mx-auto px-4 py-16">
         <!-- Header -->
-        <header class="mb-12 text-center">
-            <h1 class="text-4xl md:text-5xl font-bold mb-4">Get in Touch</h1>
+        <div class="border-l-4 border-slate-900 dark:border-white pl-6 mb-12">
+            <h1 class="text-4xl md:text-5xl font-bold mb-4">Contact</h1>
             <p class="text-xl text-slate-600 dark:text-slate-400">
-                Let's connect! I'm always open to discussing new opportunities
-                and ideas.
+                Based in Vancouver, BC • Open to internship opportunities
             </p>
-        </header>
+        </div>
 
-        <!-- Contact Options -->
-        <div class="space-y-4 mb-12">
-            <!-- Email -->
-            <a
-                href="mailto:raman_kumar@sfu.ca"
-                class="glass panel p-6 flex items-center gap-4 hover:scale-[1.01] transition-transform group"
-            >
-                <div
-                    class="flex-shrink-0 w-12 h-12 rounded-full bg-gradient-to-br from-blue-500 to-cyan-500 flex items-center justify-center text-white"
-                >
+        <!-- Contact Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+            <!-- Email Card -->
+            <a href="mailto:raman_kumar@sfu.ca" class="card p-6 group">
+                <div class="mb-3">
                     <svg
-                        class="w-6 h-6"
+                        class="w-8 h-8 text-slate-600 dark:text-slate-400"
                         fill="none"
                         stroke="currentColor"
                         viewBox="0 0 24 24"
@@ -40,42 +34,24 @@ import BaseLayout from "../layouts/BaseLayout.astro";
                         ></path>
                     </svg>
                 </div>
-                <div class="flex-grow">
-                    <h3
-                        class="font-semibold text-slate-900 dark:text-slate-100 group-hover:text-blue-600 dark:group-hover:text-cyan-400 transition-colors"
-                    >
-                        Email
-                    </h3>
-                    <p class="text-slate-600 dark:text-slate-400">
-                        raman_kumar@sfu.ca
-                    </p>
-                </div>
-                <svg
-                    class="w-5 h-5 text-slate-400 group-hover:translate-x-1 transition-transform"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                >
-                    <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M9 5l7 7-7 7"></path>
-                </svg>
+                <h2 class="text-lg font-bold mb-1 group-hover:underline">
+                    Email
+                </h2>
+                <p class="text-sm text-slate-600 dark:text-slate-400">
+                    raman_kumar@sfu.ca
+                </p>
             </a>
 
-            <!-- GitHub -->
+            <!-- GitHub Card -->
             <a
                 href="https://github.com/Gherra"
                 target="_blank"
                 rel="noopener noreferrer"
-                class="glass panel p-6 flex items-center gap-4 hover:scale-[1.01] transition-transform group"
+                class="card p-6 group"
             >
-                <div
-                    class="flex-shrink-0 w-12 h-12 rounded-full bg-gradient-to-br from-slate-700 to-slate-900 dark:from-slate-600 dark:to-slate-800 flex items-center justify-center text-white"
-                >
+                <div class="mb-3">
                     <svg
-                        class="w-6 h-6"
+                        class="w-8 h-8 text-slate-600 dark:text-slate-400"
                         fill="currentColor"
                         viewBox="0 0 24 24"
                     >
@@ -84,42 +60,24 @@ import BaseLayout from "../layouts/BaseLayout.astro";
                         ></path>
                     </svg>
                 </div>
-                <div class="flex-grow">
-                    <h3
-                        class="font-semibold text-slate-900 dark:text-slate-100 group-hover:text-blue-600 dark:group-hover:text-cyan-400 transition-colors"
-                    >
-                        GitHub
-                    </h3>
-                    <p class="text-slate-600 dark:text-slate-400">
-                        github.com/Gherra
-                    </p>
-                </div>
-                <svg
-                    class="w-5 h-5 text-slate-400 group-hover:translate-x-1 transition-transform"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                >
-                    <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M9 5l7 7-7 7"></path>
-                </svg>
+                <h2 class="text-lg font-bold mb-1 group-hover:underline">
+                    GitHub
+                </h2>
+                <p class="text-sm text-slate-600 dark:text-slate-400">
+                    @Gherra
+                </p>
             </a>
 
-            <!-- LinkedIn -->
+            <!-- LinkedIn Card -->
             <a
                 href="https://linkedin.com/in/raman-kumar-sfu"
                 target="_blank"
                 rel="noopener noreferrer"
-                class="glass panel p-6 flex items-center gap-4 hover:scale-[1.01] transition-transform group"
+                class="card p-6 group"
             >
-                <div
-                    class="flex-shrink-0 w-12 h-12 rounded-full bg-gradient-to-br from-blue-600 to-blue-700 flex items-center justify-center text-white"
-                >
+                <div class="mb-3">
                     <svg
-                        class="w-6 h-6"
+                        class="w-8 h-8 text-slate-600 dark:text-slate-400"
                         fill="currentColor"
                         viewBox="0 0 24 24"
                     >
@@ -128,39 +86,28 @@ import BaseLayout from "../layouts/BaseLayout.astro";
                         ></path>
                     </svg>
                 </div>
-                <div class="flex-grow">
-                    <h3
-                        class="font-semibold text-slate-900 dark:text-slate-100 group-hover:text-blue-600 dark:group-hover:text-cyan-400 transition-colors"
-                    >
-                        LinkedIn
-                    </h3>
-                    <p class="text-slate-600 dark:text-slate-400">
-                        linkedin.com/in/raman-kumar-sfu
-                    </p>
-                </div>
-                <svg
-                    class="w-5 h-5 text-slate-400 group-hover:translate-x-1 transition-transform"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                >
-                    <path
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M9 5l7 7-7 7"></path>
-                </svg>
+                <h2 class="text-lg font-bold mb-1 group-hover:underline">
+                    LinkedIn
+                </h2>
+                <p class="text-sm text-slate-600 dark:text-slate-400">
+                    Connect
+                </p>
             </a>
         </div>
 
-        <!-- Alternative Message -->
-        <div class="glass panel p-8 text-center">
-            <p class="text-slate-600 dark:text-slate-400">
-                Based in <strong class="text-slate-900 dark:text-slate-100"
-                    >Vancouver, BC</strong
-                > and always happy to grab coffee and discuss tech, projects, or
-                opportunities!
+        <!-- Resume Download -->
+        <div class="card p-8 text-center">
+            <h2 class="text-2xl font-bold mb-4">Resume</h2>
+            <p class="text-slate-600 dark:text-slate-400 mb-6">
+                View my complete experience and technical skills
             </p>
+            <a
+                href="/resume.pdf"
+                target="_blank"
+                class="inline-block px-6 py-3 bg-slate-900 dark:bg-white text-white dark:text-slate-900 border-2 border-slate-900 dark:border-white font-medium hover:bg-white dark:hover:bg-slate-900 hover:text-slate-900 dark:hover:text-white transition-colors"
+            >
+                Download Resume (PDF)
+            </a>
         </div>
     </article>
 </BaseLayout>
