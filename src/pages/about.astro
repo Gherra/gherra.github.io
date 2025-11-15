@@ -20,30 +20,31 @@ import BaseLayout from "../layouts/BaseLayout.astro";
             <!-- Introduction -->
             <section class="card p-8">
                 <h2 class="text-2xl font-bold mb-4">Hi, I'm Raman 👋</h2>
+
                 <div
-                    class="space-y-4 text-slate-700 dark:text-slate-300 leading-relaxed"
+                    class="space-y-3 text-slate-700 dark:text-slate-300 leading-relaxed max-w-3xl"
                 >
                     <p>
-                        I'm a Computing Science student at <strong
-                            class="text-slate-900 dark:text-slate-100"
+                        I'm a Computing Science student at
+                        <strong class="text-slate-900 dark:text-slate-100"
                             >Simon Fraser University</strong
-                        >, passionate about building software that solves real
-                        problems. My interests span <strong
-                            class="text-slate-900 dark:text-slate-100"
-                            >natural language processing and Android development</strong
-                        >, along with distributed systems.
+                        >
+                        focused on building practical software — from Android apps
+                        to NLP systems.
                     </p>
+
                     <p>
-                        I love the challenge of taking complex technical
-                        problems and crafting elegant solutions, whether that's
-                        fine-tuning language models with LoRA, building smooth
-                        Android UIs with Jetpack Compose, or designing fair
-                        routing algorithms for group coordination.
+                        Recently I've been working on swipe-based movie
+                        discovery with Jetpack Compose, a fair meetup planner
+                        using Google Maps, and large-scale climate data analysis
+                        in PySpark. I enjoy taking messy, real-world problems
+                        and turning them into tools people actually want to use.
                     </p>
-                    <p>
-                        When I'm not coding, you'll find me experimenting with
-                        new recipes or getting lost in novels by Charles Dickens
-                        and Enid Blyton.
+
+                    <p class="text-slate-600 dark:text-slate-400">
+                        When I'm not coding, you'll usually find me
+                        experimenting with new recipes or getting lost in novels
+                        by Charles Dickens and Enid Blyton.
                     </p>
                 </div>
             </section>
@@ -186,22 +187,31 @@ import BaseLayout from "../layouts/BaseLayout.astro";
             <!-- Experience -->
             <section class="card p-8">
                 <h2 class="text-2xl font-bold mb-6">Experience</h2>
-                <div class="space-y-4">
-                    <div>
-                        <h3
-                            class="text-lg font-semibold text-slate-900 dark:text-slate-100"
+
+                <div class="space-y-6">
+                    <div class="flex items-start justify-between">
+                        <div>
+                            <h3
+                                class="text-lg font-semibold text-slate-900 dark:text-slate-100"
+                            >
+                                Banking Advisor
+                            </h3>
+                            <p class="text-slate-600 dark:text-slate-400">
+                                Royal Bank of Canada
+                            </p>
+                            <p
+                                class="text-sm text-slate-500 dark:text-slate-400 mt-2"
+                            >
+                                Financial services and client relationship
+                                management
+                            </p>
+                        </div>
+
+                        <span
+                            class="text-sm font-mono text-slate-500 dark:text-slate-400"
                         >
-                            Banking Advisor
-                        </h3>
-                        <p class="text-slate-600 dark:text-slate-400">
-                            Royal Bank of Canada
-                        </p>
-                        <p
-                            class="text-sm text-slate-500 dark:text-slate-400 mt-2"
-                        >
-                            Financial services and client relationship
-                            management
-                        </p>
+                            2018 — 2021
+                        </span>
                     </div>
                 </div>
             </section>
